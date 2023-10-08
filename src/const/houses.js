@@ -24,7 +24,7 @@ const places = [
     id: '4',
     name: 'Ascot House',
     location: 'Italy',
-    image: require('../assets/house3.jpg'),
+    image: require('../assets/house4.jpg'),
     details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
   },
   {

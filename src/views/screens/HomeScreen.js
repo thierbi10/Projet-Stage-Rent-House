@@ -51,9 +51,12 @@ const HomeScreen =({navigation})=>{
 const Card = ({place}) =>{
    return <ImageBackground  style={style.cardImage} source={place.image}>
     <View style={{ flex: 1, justifyContent: 'end', alignItems: 'flex-end',  }}>
-     <Text style={{  paddingVertical:1, paddingHorizontal:10, backgroundColor: COLORS.grey, color:COLORS.white,  borderRadius:20 }}>
-       <Icon name="location-pin" size={14} color={COLORS.white} />
-       15 km
+     <Text style={{  paddingVertical:1, paddingHorizontal:10, backgroundColor: COLORS.grey, fontSize:11, color:COLORS.white,  borderRadius:20 }}>
+       <Icon name="location-pin" size={10} style={{marginTop:15}} color={COLORS.white} />
+        <Text >15 km</Text> 
+
+
+            
      </Text>
    </View>
     <Text style={{ color:COLORS.white , fontSize:16 , marginTop:140, fontWeight:500}} >{place.name}</Text>
@@ -81,11 +84,11 @@ const CardHouse = ({house}) =>{
             {/* Facilities container */}
             <View style={{marginTop: 10, flexDirection: 'row'}}>
               <View style={style.facility}>
-                <Icon name="hotel" size={18} />
+                <Icon name="hotel"  color={COLORS.backgroundtrans} size={18} />
                 <Text style={style.facilityText}>2</Text>
               </View>
               <View style={style.facility}>
-                <Icon name="bathtub" size={18} />
+                <Icon name="bathtub" color={COLORS.backgroundtrans}  size={18} />
                 <Text style={style.facilityText}>4 Bathroom</Text>
               </View>
               
@@ -247,7 +250,7 @@ const style = StyleSheet.create({
     optionsCard: {
       height: 210,
       width: width / 2 - 30,
-      // elevation: 15,
+     elevation: 15,
       alignItems: 'center',
       backgroundColor: COLORS.white,
       borderRadius: 20,
@@ -290,16 +293,16 @@ const style = StyleSheet.create({
     CardHouseCont: {
       height: 110,
       flexDirection:'row',
-      gap:15,
+      gap:10,
       justifyContent:'space-between',
       backgroundColor: COLORS.white,
-      elevation: 10,
+      // elevation: 10,
       width: '95%',
       marginRight: 20,
       padding: 15,
       borderRadius: 20, 
       padding:10,
-      margin :10,
+      
     },
     cardImages:{
        width:120,

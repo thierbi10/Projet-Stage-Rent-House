@@ -6,6 +6,7 @@ const COLORS = {
     blue: '#0A8ED9',
     red: 'red',
     tranparent: 'rgba(0,0,0,0)',
+    backgroundtrans: 'rgba(0, 0, 0, 0.24)',
   };
   
   export default COLORS;

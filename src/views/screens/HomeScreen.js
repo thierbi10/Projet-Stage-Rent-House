@@ -24,16 +24,9 @@ const {width} = Dimensions.get('screen');
 
 
 const categoryList = ['House', 'Apartment', 'Hotel','Villa'];
-const optionsList = [
-  {title: 'Buy a Home', img: require('../../assets/house1.jpg')},
-  {title: 'Rent a Home', img: require('../../assets/house2.jpg')},
-];
+
 const ListCategories = () => {
-  // const listOption =()=>{
-  //       const optlist =[
-  //         {img:require(''), title:'Orchad House', ref:'Rp. 2.500.000.000 / Year  ' }
-  //       ]
-  // }
+  
   const [selectedCategoryIndex, setSelectedCategoryIndex] = React.useState(0);
   return (
     <View style={style.categoryListContainer}>
@@ -254,7 +247,7 @@ const style = StyleSheet.create({
     optionsCard: {
       height: 210,
       width: width / 2 - 30,
-      elevation: 15,
+      // elevation: 15,
       alignItems: 'center',
       backgroundColor: COLORS.white,
       borderRadius: 20,
@@ -274,7 +267,7 @@ const style = StyleSheet.create({
     },
     categoryListText: {
       fontSize: 16,
-      paddingBottom: 5,
+     
       color: COLORS.grey,
      padding:12,
 
@@ -285,8 +278,8 @@ const style = StyleSheet.create({
       textDecorationLine:'none',
       borderRadius: 12,
       color: COLORS.white,
-      borderBottomWidth: 1,
-      paddingBottom: 5,
+      
+      
     },
     categoryListContainer: {
       flexDirection: 'row',

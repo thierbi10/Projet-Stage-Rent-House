@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Animated,
 } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
 import home from '../../assets/icons/home.png';
 import chat from '../../assets/icons/chat.png';
 import badge from '../../assets/icons/badge.png';
@@ -23,6 +23,7 @@ import close from '../../assets/icons/close.png';
 import HomeScreen from './HomeScreen';
 
 export default function AppScreen() {
+  const navigation = useNavigation();
   const [currentTab, setCurrentTab] = useState("Home");
   const [showMenu, setShowMenu] = useState(true);
 
@@ -80,7 +81,7 @@ export default function AppScreen() {
   }}
 >
   {/* Contenu du menu */}
-  <HomeScreen />
+  <HomeScreen   navigation={navigation}  />
   <TouchableOpacity
     onPress={() => {
       Animated.timing(scaleValue, {

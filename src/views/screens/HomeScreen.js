@@ -108,9 +108,9 @@ const CardHouse = ({house}) =>{
         {/* Header container */}
         <View style={style.header}>
           <View>
-            <Text style={{color: COLORS.grey}}>Location</Text>
+            <Text style={{color: COLORS.grey}}>locaisation</Text>
             <Text style={{color: COLORS.dark, fontSize: 20, fontWeight: 'bold'}}>
-              jakarta
+              Dakar
             </Text>
           </View>
           <Icon name="notifications-none" color={COLORS.grey} size={25} />
@@ -150,7 +150,7 @@ const CardHouse = ({house}) =>{
 
           <View >
           <Text style={{color: COLORS.grey, fontSize:12}}>
-          See more</Text>
+          voir plus</Text>
           </View>
         </View>
         
@@ -173,12 +173,12 @@ const CardHouse = ({house}) =>{
           }}>
           <View >
           <Text style={{color: COLORS.dark, fontSize: 14, fontWeight: 'bold'}}>
-          Best for you</Text>
+          Meilleurs</Text>
           </View>
 
           <View >
           <Text style={{color: COLORS.grey, fontSize:12}}>
-          See more</Text>
+          Voir plus</Text>
           </View>
         </View>
          

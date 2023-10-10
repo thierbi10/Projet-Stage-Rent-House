@@ -1,10 +1,10 @@
 const houseData = [
     {
       id: '1',
-      nom: 'Dreamsville House',
+      nom: 'Sipresse Maison',
       location: 'The Hollies House',
-      locations: 'Jl. Sultan Iskandar Mudas',
-      ref: 'Rp. 2.500.000.000 / Year',
+      locations: 'SN. Dakar',
+      ref: 'PRIX. 2.500.000/ annee',
       im: require('../assets/house3.jpg'),
 
     details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
@@ -16,10 +16,10 @@ const houseData = [
   },
     {
       id: '2',
-      nom: 'Ascot House',
+      nom: 'Hlm Maison',
       locations: 'Jl. Sultan Iskandar Mudas',
-      location: 'The Hollies House',
-      ref: 'Rp. 2.500.000.000 / Year',
+      location: 'SN. Dakar',
+      ref: 'PRIX. 2.500.000/ annee',
       im: require('../assets/house4.jpg'),
 
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
@@ -31,9 +31,9 @@ const houseData = [
     },
     {
       id: '3',
-      nom: 'Dreamsville House',
-      location: 'Orchad House',
-      ref: 'Rp. 2.500.000.000 / Year',
+      nom: 'Sipresse Maison',
+      location: 'SN. Dakar',
+      ref: 'PRIX. 2.500.000/ annee',
 
       im: require('../assets/dreamville.png'),
 
@@ -46,10 +46,10 @@ const houseData = [
     },
     {
       id: '4',
-      nom: 'Ascot House',
+      nom: 'Sipresse Maison',
       locations: 'Jl. Sultan Iskandar Mudas',
-      location: 'Orchad House',
-      ref: 'Rp. 2.500.000.000 / Year',
+      location: 'SN. Dakar',
+      ref: 'PRIX. 2.500.000/ annee',
       im: require('../assets/house3.jpg'),
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
       interiors: [
@@ -60,10 +60,10 @@ const houseData = [
     },
     {
       id: '5',
-      nom: 'Ascot House',
-      location: ' Sultan Iskandar Muda',
-      locations: 'Jl. Sultan Iskandar Mudas',
-      ref: 'Rp. 2.500.000.000 / Year',
+      nom: 'Sipresse Maison',
+      location: ' SN. Dakar',
+      locations: 'Rufisque',
+      ref: 'PRIX. 2.500.000/ annee',
       im: require('../assets/ascothouse.png'),
 
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
@@ -75,10 +75,10 @@ const houseData = [
     },
     {
       id: '6',
-      nom: 'Dreamsville House',
-      ref: 'Rp. 2.500.000.000 / Year',
-      location: 'Sultan Iskandar Muda',
-      locations: 'Jl. Sultan Iskandar Mudas',
+      nom: 'Sipresse Maison',
+      ref: 'PRIX. 2.500.000/ annee',
+      location: 'SN. Dakar',
+      locations: 'HML',
       im: require('../assets/house3.jpg'),
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
       interiors: [

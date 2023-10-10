@@ -93,7 +93,12 @@ const DetailScreen = ({navigation,route}) =>{
           />
        
           </View>
-       
+          <View>
+          <Text>
+            .L.%PMKEKK
+          </Text>
+          </View>
+      
           </View>
           </View>
            

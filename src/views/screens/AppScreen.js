@@ -7,6 +7,8 @@ import {
   StyleSheet,
   TouchableOpacity,
   Animated,
+  PanResponder,
+  TouchableWithoutFeedback, // Import de TouchableWithoutFeedback
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import home from '../../assets/icons/home.png';
@@ -20,18 +22,53 @@ import logout from '../../assets/icons/logout.png';
 import parametre from '../../assets/icons/parametre.png';
 import menu from '../../assets/icons/menu.png';
 import close from '../../assets/icons/close.png';
-import HomeScreen from './HomeScreen';
+import HomeScreen from './HomeScreen'; // Assurez-vous que le chemin soit correct
 
 export default function AppScreen() {
   const navigation = useNavigation();
   const [currentTab, setCurrentTab] = useState("Home");
-  const [showMenu, setShowMenu] = useState(true);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
 
-  
+  const panResponder = PanResponder.create({
+    onStartShouldSetPanResponder: () => true,
+    onMoveShouldSetPanResponder: (_, gestureState) => {
+      return gestureState.dx > 50;
+    },
+    onPanResponderGrant: () => {},
+    onPanResponderMove: (_, gestureState) => {},
+    onPanResponderRelease: (_, gestureState) => {
+      if (gestureState.dx > 50) {
+        toggleSidebar();
+      }
+    },
+  });
+
+  const toggleSidebar = () => {
+    Animated.timing(scaleValue, {
+      toValue: isSidebarOpen ? 1 : 0.88,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+
+    Animated.timing(offsetValue, {
+      toValue: isSidebarOpen ? 0 : 230,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+
+    Animated.timing(closeButtonOffset, {
+      toValue: isSidebarOpen ? -30 : 0,
+      duration: 300,
+      useNativeDriver: true,
+    }).start();
+
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
   const tabs = [
     { title: "Home", image: home },
     { title: "Profile", image: profil },
@@ -44,97 +81,67 @@ export default function AppScreen() {
     { title: "Logout", image: logout },
   ];
 
-
-
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={{ flexGrow: 1, marginTop: 10 }}>
-        {tabs.map((tab, index) => (
-          <TabButton
-            key={index}
-            currentTab={currentTab}
-            setCurrentTab={setCurrentTab}
-            title={tab.title}
-            image={tab.image}
-          />
-        ))}
-      </View>
-      
-      <Animated.View
-  style={{
-    flexGrow: 1,
-    backgroundColor: "white",
-    position: 'absolute',
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    paddingHorizontal: 0,
-    paddingVertical: 0,
-    borderRadius: showMenu ? 19 : 0,
+    <TouchableWithoutFeedback onPress={() => { // Utilisation de TouchableWithoutFeedback pour fermer la barre latérale
+      if (isSidebarOpen) {
+        toggleSidebar();
+      }
+    }}>
+      <SafeAreaView style={styles.container}>
+        <View style={{ flexGrow: 1, marginTop: 10 }}>
+          {tabs.map((tab, index) => (
+            <TabButton
+              key={index}
+              currentTab={currentTab}
+              setCurrentTab={setCurrentTab}
+              title={tab.title}
+              image={tab.image}
+            />
+          ))}
+        </View>
 
-    // Transform
-    transform: [
-      { scale: scaleValue },
-      { translateX: offsetValue }
-    ]
-  }}
->
-  {/* Contenu du menu */}
-  <HomeScreen   navigation={navigation}  />
-  <TouchableOpacity
-    onPress={() => {
-      Animated.timing(scaleValue, {
-        toValue: showMenu ? 1 : 0.88,
-        duration: 300,
-        useNativeDriver: true
-      }).start();
-
-      Animated.timing(offsetValue, {
-        toValue: showMenu ? 0 : 230,
-        duration: 300,
-        useNativeDriver: true
-      }).start();
-
-      Animated.timing(closeButtonOffset, {
-        toValue: !showMenu ? -30 : 0,
-        duration: 300,
-        useNativeDriver: true
-      }).start();
-
-      setShowMenu(!showMenu);
-    }}
-  >
-    <Image
-      source={showMenu ? close : menu}
-      style={{
-        width: 16,
-        height: 16,
-        tintColor: 'black',
-        marginTop: 30,
-      }}
-    />
-    <View>
-
-   
-    </View>
-  </TouchableOpacity>
-</Animated.View>
-
-    </SafeAreaView>
+        <Animated.View
+          {...panResponder.panHandlers}
+          style={{
+            flexGrow: 1,
+            backgroundColor: "white",
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            paddingHorizontal: 0,
+            paddingVertical: 0,
+            borderRadius: isSidebarOpen ? 19 : 0,
+            // Transform
+            transform: [
+              { scale: scaleValue },
+              { translateX: offsetValue },
+            ],
+          }}
+        >
+          {/* Contenu du menu */}
+          <HomeScreen navigation={navigation} />
+          <TouchableOpacity
+            onPress={toggleSidebar}
+            style={{
+              position: 'absolute',
+              top: 20,
+              left: 20,
+              zIndex: 1,
+            }}
+          >
+            {/* ... Bouton de menu ici */}
+          </TouchableOpacity>
+        </Animated.View>
+      </SafeAreaView>
+    </TouchableWithoutFeedback>
   );
 }
 
 const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
   return (
     <TouchableOpacity
-      onPress={() => {
-        if (title == "Logout") {
-          // Gérer le logout ici
-        } else {
-          setCurrentTab(title);
-        }
-      }}
       style={{
         height: 60,
         paddingTop: 60
@@ -164,7 +171,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             justifyContent: 'center',
             paddingVertical: 5,
             paddingHorizontal: 5,
-            tintColor: currentTab === title ? "#0A8ED9" : 'white'
+            tintColor: currentTab === title ? "#0A8EDD9" : 'white',
           }}
         />
         <Text
@@ -175,7 +182,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             borderRadius: 28,
             paddingRight: 40,
             overflow: 'hidden',
-            color: currentTab === title ? "#0A8ED9" : 'white'
+            color: currentTab === title ? "#0A8EDD9" : 'white',
           }}
         >
           {title}

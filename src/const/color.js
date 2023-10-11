@@ -7,7 +7,10 @@ const COLORS = {
     red: 'red',
     tranparent: 'rgba(0,0,0,0)',
     backgroundtrans: 'rgba(0, 0, 0, 0.24)',
+     lightBlue : "#f1f4ff",
+
   };
+  
   
   export default COLORS;
   

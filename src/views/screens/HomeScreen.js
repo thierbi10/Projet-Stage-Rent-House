@@ -19,6 +19,7 @@ import {
 import COLORS from '../../const/color';
 import places from '../../const/houses';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// import Icon from 'react-native-vector-icons/Fontisto';
 import houseData from '../../const/houseData';
 const {width} = Dimensions.get('screen');
 
@@ -184,7 +185,9 @@ const CardHouse = ({house}) =>{
          
        <View>
 
-            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} />}/>
+            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} 
+             
+            />}/>
                                   
        </View>
           </ScrollView>

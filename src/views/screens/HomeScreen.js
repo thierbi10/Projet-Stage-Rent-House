@@ -89,7 +89,7 @@ const CardHouse = ({house}) =>{
               </View>
               <View style={style.facility}>
                 <Icon name="bathtub" color={COLORS.backgroundtrans}  size={18} />
-                <Text style={style.facilityText}>4 Bathroom</Text>
+                <Text style={style.facilityText}>4 salles de bain</Text>
               </View>
               
             </View>
@@ -108,7 +108,7 @@ const CardHouse = ({house}) =>{
         {/* Header container */}
         <View style={style.header}>
           <View>
-            <Text style={{color: COLORS.grey}}>locaisation</Text>
+            <Text style={{color: COLORS.grey}}>localisation</Text>
             <Text style={{color: COLORS.dark, fontSize: 20, fontWeight: 'bold'}}>
               Dakar
             </Text>
@@ -124,8 +124,8 @@ const CardHouse = ({house}) =>{
               paddingHorizontal: 10,
             }}>
             <View style={style.searchInputContainer}>
-              <Icon name="search" color={COLORS.grey} size={25} />
-              <TextInput placeholder="Search address, or near you " />
+              <Icon name="Recherche" color={COLORS.grey} size={25} />
+              <TextInput placeholder="Rechercher une adresse ou près de chez vous " />
             </View>
   
             <View style={style.sortBtn}>
@@ -145,7 +145,7 @@ const CardHouse = ({house}) =>{
           }}> 
           <View >
           <Text style={{color: COLORS.dark, fontSize: 14, fontWeight: 'bold'}}>
-            Near from you</Text>
+          Près de toi</Text>
           </View>
 
           <View >
@@ -173,7 +173,7 @@ const CardHouse = ({house}) =>{
           }}>
           <View >
           <Text style={{color: COLORS.dark, fontSize: 14, fontWeight: 'bold'}}>
-          Meilleurs</Text>
+          Près de toi</Text>
           </View>
 
           <View >

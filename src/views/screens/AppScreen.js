@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   Animated,
   PanResponder,
-  TouchableWithoutFeedback, // Import de TouchableWithoutFeedback
+  TouchableWithoutFeedback,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import home from '../../assets/icons/home.png';
@@ -20,13 +20,11 @@ import notif from '../../assets/icons/notif.png';
 import profil from '../../assets/icons/profil.png';
 import logout from '../../assets/icons/logout.png';
 import parametre from '../../assets/icons/parametre.png';
-import menu from '../../assets/icons/menu.png';
-import close from '../../assets/icons/close.png';
-import HomeScreen from './HomeScreen'; // Assurez-vous que le chemin soit correct
+import HomeScreen from './HomeScreen';
 
 export default function AppScreen() {
   const navigation = useNavigation();
-  const [currentTab, setCurrentTab] = useState("Home");
+  const [currentTab, setCurrentTab] = useState('Home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   const offsetValue = useRef(new Animated.Value(0)).current;
@@ -70,23 +68,24 @@ export default function AppScreen() {
   };
 
   const tabs = [
-    { title: "Home", image: home },
-    { title: "Profile", image: profil },
-    { title: "Nearby", image: location },
-    { title: "Bookmark", image: badge },
-    { title: "Notification", image: notif },
-    { title: "Message", image: chat },
-    { title: "Setting", image: parametre },
-    { title: "Help", image: intro },
-    { title: "Logout", image: logout },
+    { title: 'Home', image: home },
+    { title: 'Profile', image: profil },
+    { title: 'Nearby', image: location },
+    { title: 'Bookmark', image: badge },
+    { title: 'Notification', image: notif },
+    { title: 'Message', image: chat },
+    { title: 'Setting', image: parametre },
+    { title: 'Help', image: intro },
+    { title: 'Logout', image: logout },
   ];
 
   return (
-    <TouchableWithoutFeedback onPress={() => { // Utilisation de TouchableWithoutFeedback pour fermer la barre latérale
-      if (isSidebarOpen) {
-        toggleSidebar();
-      }
-    }}>
+    <TouchableWithoutFeedback
+      onPress={() => {
+        if (isSidebarOpen) {
+          toggleSidebar();
+        }
+      }}>
       <SafeAreaView style={styles.container}>
         <View style={{ flexGrow: 1, marginTop: 10 }}>
           {tabs.map((tab, index) => (
@@ -104,7 +103,7 @@ export default function AppScreen() {
           {...panResponder.panHandlers}
           style={{
             flexGrow: 1,
-            backgroundColor: "white",
+            backgroundColor: 'white',
             position: 'absolute',
             top: 0,
             bottom: 0,
@@ -114,24 +113,23 @@ export default function AppScreen() {
             paddingVertical: 0,
             borderRadius: isSidebarOpen ? 19 : 0,
             // Transform
-            transform: [
-              { scale: scaleValue },
-              { translateX: offsetValue },
-            ],
-          }}
-        >
-          {/* Contenu du menu */}
-          <HomeScreen navigation={navigation} />
+            transform: [{ scale: scaleValue }, { translateX: offsetValue }],
+          }}>
+        
+          <HomeScreen
+            navigation={navigation}
+            isSidebarOpen={isSidebarOpen}
+          />
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{
-              position: 'absolute',
+            
               top: 20,
               left: 20,
               zIndex: 1,
-            }}
-          >
-            {/* ... Bouton de menu ici */}
+              borderRadius: isSidebarOpen ? 10 : 0,
+            }}>
+          
           </TouchableOpacity>
         </Animated.View>
       </SafeAreaView>
@@ -144,12 +142,12 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
     <TouchableOpacity
       style={{
         height: 60,
-        paddingTop: 60
-      }}
-    >
+        paddingTop: 60,
+      }}>
+        
       <View
         style={{
-          flexDirection: "row",
+          flexDirection: 'row',
           alignItems: 'center',
           paddingVertical: 2,
           backgroundColor: currentTab === title ? 'white' : 'transparent',
@@ -159,8 +157,8 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
           borderTopRightRadius: 32,
           borderBottomEndRadius: 32,
           height: 50,
-        }}
-      >
+          
+        }}>
         <Image
           source={image}
           style={{
@@ -171,7 +169,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             justifyContent: 'center',
             paddingVertical: 5,
             paddingHorizontal: 5,
-            tintColor: currentTab === title ? "#0A8EDD9" : 'white',
+            tintColor: currentTab === title ? '#0A8EDD9' : 'white',
           }}
         />
         <Text
@@ -182,15 +180,14 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             borderRadius: 28,
             paddingRight: 40,
             overflow: 'hidden',
-            color: currentTab === title ? "#0A8EDD9" : 'white',
-          }}
-        >
+            color: currentTab === title ? '#0A8EDD9' : 'white',
+          }}>
           {title}
         </Text>
       </View>
     </TouchableOpacity>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {

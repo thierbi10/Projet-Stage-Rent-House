@@ -47,20 +47,20 @@ const DetailScreen = ({navigation,route}) =>{
          <View style={style.headerBtn2}>
            <Icon name="hotel" color={COLORS.white} size={15} />
            </View>
-           <Text style={style.facilityTextDetails}>2 betroom</Text>
+           <Text style={style.facilityTextDetails}>2 salles de bain</Text>
          </View>
          <View style={style.facilityDetails}>
          <View style={style.headerBtn2}>
            <Icon name="bathtub" color={COLORS.white} size={15} />
            </View>
-           <Text style={style.facilityTextDetails}>4 Bathroom</Text>
+           <Text style={style.facilityTextDetails}>4 salles de bain</Text>
          </View>
        </View>
 </View>
           </ImageBackground>  
           <View style={{marginTop:10}}>
             <Text style={{fontSize:16 , fontWeight:500,  color:COLORS.dark}} >Description</Text>
-            <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}} >The 3 level house that has a modern design, has a large pool and a garage that fits up to four cars... <Text style={{color:COLORS.blue}}>Show More</Text> </Text>
+            <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}} >The 3 level house that has a modern design, has a large pool and a garage that fits up to four cars... <Text style={{color:COLORS.blue}}>voir plus</Text> </Text>
          
             <View style={style.header1}>
               <View style={{ flex:1,   flexDirection: 'row' , gap:10 ,alignItems:'center'}} >

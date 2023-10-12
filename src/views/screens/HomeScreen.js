@@ -9,12 +9,12 @@ import {
     StyleSheet,
     Image,
     Pressable,
-    ScrollView,
+    
     Button,
     ImageBackground,
   } from 'react-native';
   import React, { useState } from 'react';
-
+  import { ScrollView } from 'react-native-virtualized-view';
   
 import COLORS from '../../const/color';
 import places from '../../const/houses';

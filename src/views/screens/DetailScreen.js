@@ -65,8 +65,8 @@ const DetailScreen = ({navigation,route}) =>{
        
             <View style={style.backgroundImageContainer}>
              <ImageBackground style={style.backgroundImage} source={house.im}> 
-         <View style={style.header}>
-              <View style={style.headerBtn}>
+             <View style={style.header}>
+               <View style={style.headerBtn}>
                 <Icon
                   name="arrow-back-ios"
                   size={20}
@@ -148,7 +148,7 @@ const DetailScreen = ({navigation,route}) =>{
           <Text style={{fontSize:16 , marginTop:-12, fontWeight:500, color:COLORS.dark}} >Gallery</Text>
       
            {/* <FileList /> */}
-             <FlatList style={{backgroundColor:COLORS.blue , height:30, }}
+            <FlatList style={{backgroundColor:COLORS.blue , height:30, }}
             
              horizontal
              showsHorizontalScrollIndicator={false}
@@ -157,7 +157,7 @@ const DetailScreen = ({navigation,route}) =>{
              renderItem={({item}) => <InteriorCard interior={item} />}
             
     
-            />   
+            />    
        
        
          

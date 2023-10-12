@@ -75,7 +75,7 @@ const houseData = [
     },
     {
       id: '6',
-      nom: 'Sipresse Maison',
+      nom: 'Sipresse  Maison',
       ref: 'PRIX. 2.500.000/ annee',
       location: 'SN. Dakar',
       locations: 'HML',

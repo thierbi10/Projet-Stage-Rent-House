@@ -141,8 +141,8 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
   return (
     <TouchableOpacity
       style={{
-        height: 60,
-        paddingTop: 60,
+        height: 50,
+        paddingTop: 50,
       }}>
         
       <View

@@ -9,16 +9,17 @@ import {
     StyleSheet,
     Image,
     Pressable,
-    ScrollView,
+    
     Button,
     ImageBackground,
   } from 'react-native';
   import React, { useState } from 'react';
-
+  import { ScrollView } from 'react-native-virtualized-view';
   
 import COLORS from '../../const/color';
 import places from '../../const/houses';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+//  import Icon from 'react-native-vector-icons/Fontisto';
 import houseData from '../../const/houseData';
 const {width} = Dimensions.get('screen');
 
@@ -124,7 +125,7 @@ const CardHouse = ({house}) =>{
               paddingHorizontal: 10,
             }}>
             <View style={style.searchInputContainer}>
-              <Icon name="Recherche" color={COLORS.grey} size={25} />
+              <Icon name="search" color={COLORS.grey} size={25} />
               <TextInput placeholder="Rechercher une adresse ou près de chez vous " />
             </View>
   
@@ -184,7 +185,9 @@ const CardHouse = ({house}) =>{
          
        <View>
 
-            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} />}/>
+            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} 
+             
+            />}/>
                                   
        </View>
           </ScrollView>

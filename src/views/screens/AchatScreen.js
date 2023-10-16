@@ -21,9 +21,17 @@ const AchatScreen = (props) => {
         <Text style={styles.subtitle}> Description </Text>
       
         
-        <Text style={styles.text}> Bonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
-        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée ou ventilée, TV avec canal, WiFi gratuit...femme de ménage disponible tout les jours. Résidence bien sécurisée avec des vigils pour assurer votre bien-être. Pour plus d'infos ou photo contacter moi, appelle normal ou WhatsApp
-NB: les prix sont différents car on as aussi des studios ( chambres, salon cuisine) disponible...Merci </Text>
+        <Text style={styles.text}>
+          Bonjour nous louons des chambres meublées à Rufisque
+          dans un endroit calme, accessible et sécurisée. 
+          Les chambres sont composées d'une salle de bain 
+          interne ou externe bien climatisée ou ventilée,
+          TV avec canal, WiFi gratuit...femme de ménage
+          disponible tout les jours. Résidence bien sécurisée
+          avec des vigils pour assurer votre bien-être.Pour
+          plus d'infos ou photo contacter moi, appelle normal ou WhatsApp
+          NB: les prix sont différents car on as aussi des studios
+          (chambres, salon cuisine) disponible...Merci </Text>
 <Text style={styles.subtitle}>Details</Text>
 
 <View style={{
@@ -43,7 +51,6 @@ NB: les prix sont différents car on as aussi des studios ( chambres, salon cuis
     <Text style={styles.texte}>Dakar, Rufisque</Text>
   </View>
 </View>
-        
         <View style={styles.cont1}>
           <FontAwesome name="heart-o" color="#000" size={25} />
           <TouchableOpacity
@@ -66,6 +73,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: "#6e8ad8",
+    height: "100%",
   },
   title: {
     fontSize: 25,
@@ -87,7 +95,7 @@ const styles = StyleSheet.create({
   },
   text: {
     
-    fontSize: 15,
+    fontSize: 11,
     lineHeight: 25,
     
   },

@@ -169,7 +169,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             justifyContent: 'center',
             paddingVertical: 5,
             paddingHorizontal: 5,
-            tintColor: currentTab === title ? '#0A8EDD9' : 'white',
+            tintColor: currentTab === title ? '#082985' : 'white',
           }}
         />
         <Text
@@ -180,7 +180,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             borderRadius: 28,
             paddingRight: 40,
             overflow: 'hidden',
-            color: currentTab === title ? '#0A8EDD9' : 'white',
+            color: currentTab === title ? '#082985' : 'white',
           }}>
           {title}
         </Text>
@@ -192,7 +192,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0A8ED9',
+    backgroundColor: '#082985',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },

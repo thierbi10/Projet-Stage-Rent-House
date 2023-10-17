@@ -147,7 +147,7 @@ const DetailScreen = ({navigation,route}) =>{
           <Text style={{fontSize:16 , marginTop:-12, fontWeight:500, color:COLORS.dark}} >Gallery</Text>
       
            {/* <FileList /> */}
-            <FlatList style={{backgroundColor:COLORS.blue , height:30, }}
+            <FlatList style={{ height:30, }}
             
              horizontal
              showsHorizontalScrollIndicator={false}

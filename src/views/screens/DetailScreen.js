@@ -93,7 +93,7 @@ const DetailScreen = ({navigation,route}) =>{
          <View style={style.headerBtn2}>
            <Icon name="hotel" color={COLORS.white} size={15} />
            </View>
-           <Text style={style.facilityTextDetails}>2 salles de bain</Text>
+           <Text style={style.facilityTextDetails}>2 lits</Text>
          </View>
          <View style={style.facilityDetails}>
          <View style={style.headerBtn2}>

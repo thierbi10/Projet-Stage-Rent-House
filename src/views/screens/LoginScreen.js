@@ -28,7 +28,6 @@ const LoginScreen = () => {
 //     return unsubscribe
 //   }, [])
 
-  
   const handleLogin = () => {
     signInWithEmailAndPassword (auth, email, password)
       .then(userCredentials => {

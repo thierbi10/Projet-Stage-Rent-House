@@ -62,7 +62,6 @@ const DetailScreen = ({navigation,route}) =>{
 
     return (
       <SafeAreaView style={{ flex:1, backgroundColor:COLORS.white}}>   
-       
             <View style={style.backgroundImageContainer}>
              <ImageBackground style={style.backgroundImage} source={house.im}> 
              <View style={style.header}>

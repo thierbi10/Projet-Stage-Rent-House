@@ -126,7 +126,7 @@ const CardHouse = ({house}) =>{
             }}>
             <View style={style.searchInputContainer}>
               <Icon name="search" color={COLORS.grey} size={25} />
-              <TextInput placeholder="Rechercher une adresse ou près de chez vous " />
+              <TextInput placeholder="Rechercher une adresse  " />
             </View>
   
             <View style={style.sortBtn}>

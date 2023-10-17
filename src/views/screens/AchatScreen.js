@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, ScrollView, ImageBackground, Image } from 'reac
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import COLORS from '../../const/color';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const AchatScreen = (props) => {
   return (
@@ -17,32 +19,55 @@ const AchatScreen = (props) => {
       <Image source={require('../../img/house1.jpg')} style={styles.img}  />
 
       <View style={styles.cont3}>
-        <Text style={styles.title}>Appartement disponible</Text>
-        <Text style={styles.subtitle}> Description </Text>
+      <View style={styles.header1}>
+              <View style={{ flex:1,   flexDirection: 'row' , justifyContent:'space-between',alignItems:'center'}} >
+              <TouchableOpacity>
+        
+              <Text> Prix :150.0000 fcfa/mois</Text>
+               </TouchableOpacity>             
+              </View >
+              <TouchableOpacity onPress={() => alert("procedure de payement")}>
+              <Text style={styles.headerBtn13} > Payer</Text>   
+              </TouchableOpacity>
+            </View> 
+        <Text style={{fontSize:18 , fontWeight:500, color:COLORS.dark}}> Déscription </Text>
       
         
-        <Text style={styles.text}> Bonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
-        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée ou ventilée, TV avec canal, WiFi gratuit...femme de ménage disponible tout les jours. Résidence bien sécurisée avec des vigils pour assurer votre bien-être. Pour plus d'infos ou photo contacter moi, appelle normal ou WhatsApp
-NB: les prix sont différents car on as aussi des studios ( chambres, salon cuisine) disponible...Merci </Text>
+        <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}}> Bonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
+        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée </Text>
 <Text style={styles.subtitle}>Details</Text>
+<View style={{flex:1, flexDirection: 'row' ,marginVertical:20, gap:10 ,alignItems:'center'}}>
+<Icon name="location-on" size={20} color={COLORS.blue} />
+ <Text> Dakar,hlm4,VILLA 1001</Text>
 
-<View style={{
-  flex:1,
-  flexDirection:'row',
-  justifyContent:'space-between'
-  
-}}>
-  <View style={styles.column}>
+</View>
+
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', marginRight:30,   gap:10 ,alignItems:'center'}}>
     <Text style={styles.textes}>Chambres</Text>
-    <Text style={styles.textes}>Salle de Bain</Text>
-    <Text style={styles.textes}>Adresse</Text>
+    <Text style={styles.textes}>8</Text>
+    
   </View>
-  <View style={styles.column}>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between',marginRight:30, gap:10 ,alignItems:'center'}}>
+    <Text style={styles.textes}>Salons</Text>
+    <Text style={styles.textes}>2</Text>
+    
+  </View>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between',marginRight:30, gap:10 ,alignItems:'center'}}>
+    <Text style={styles.textes}>nombre de lis</Text>
+    <Text style={styles.textes}>8</Text>
+    
+  </View>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', gap:10 , marginRight:30,alignItems:'center'}}>
+    <Text style={styles.textes}>salles de bain</Text>
+    <Text style={styles.textes}>4</Text>
+    
+  </View>
+  {/*<View style={styles.column}>
     <Text style={styles.texte}>3</Text>
     <Text style={styles.texte}>2</Text>
-    <Text style={styles.texte}>Dakar, Rufisque</Text>
   </View>
-</View>
+<Text style={styles.texte}>Dakar, Rufisque</Text>*/}
+
         
         <View style={styles.cont1}>
           <FontAwesome name="heart-o" color="#000" size={25} />
@@ -65,25 +90,40 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#6e8ad8",
+    backgroundColor: COLORS.lightBlue,
   },
   title: {
     fontSize: 25,
-    
     marginTop: 30,
   },
   subtitle: {
     fontSize: 20,
     color: "#474747",
     marginTop: 10,
-  
-
+  },
+  headerBtn13: {
+      
+    marginLeft:5,
+    backgroundColor: COLORS.blue,
+    paddingHorizontal:20,
+    paddingVertical: 7,
+    color:COLORS.white,
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   texte: {
     
     fontSize: 15,
-    lineHeight: 25,
+    lineHeight: 10,
     
+  },
+  header1: {
+    paddingVertical: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems:'center',
+    paddingHorizontal: 0,
   },
   text: {
     
@@ -93,8 +133,7 @@ const styles = StyleSheet.create({
   },
   textes: {
   
-    fontSize: 15,
-    lineHeight: 25,
+    fontSize: 13,
     color:"#1243c9"
     
   },
@@ -159,7 +198,7 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   img: {
-    height: "55%",
+    height: "45%",
     width: "100%",
   },
   cont3: {

@@ -48,22 +48,25 @@ const ListCategories = () => {
     </View>
   );
 };
-const HomeScreen =({navigation})=>{
+const HomeScreen =({navigation,houseData})=>{
+  const [filterText, setFilterText] = useState('');
+  const filteredHouses = houseData ? houseData.filter((item) =>
+  item.locality.toLowerCase().includes(filterText.toLowerCase())
+) : [];
+
 const Card = ({place}) =>{
    return <ImageBackground  style={style.cardImage} source={place.image}>
     <View style={{ flex: 1, justifyContent: 'end', alignItems: 'flex-end',  }}>
      <Text style={{  paddingVertical:1, paddingHorizontal:10, backgroundColor: COLORS.grey, fontSize:11, color:COLORS.white,  borderRadius:20 }}>
        <Icon name="location-pin" size={10} style={{marginTop:15}} color={COLORS.white} />
-        <Text >15 km</Text> 
-
-
-            
+        <Text >15 km</Text>       
      </Text>
    </View>
     <Text style={{ color:COLORS.white , fontSize:16 , marginTop:140, fontWeight:500}} >{place.name}</Text>
     <Text style={{ color:COLORS.white , fontSize:12 , fontWeight:400}} >{place.location}</Text>
    </ImageBackground>
 }
+
 
 const CardHouse = ({house}) =>{
   return (
@@ -97,6 +100,7 @@ const CardHouse = ({house}) =>{
      </View>
   </View>
   </Pressable>
+
 )}
     return (
         <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>
@@ -126,7 +130,11 @@ const CardHouse = ({house}) =>{
             }}>
             <View style={style.searchInputContainer}>
               <Icon name="search" color={COLORS.grey} size={25} />
-              <TextInput placeholder="Rechercher une adresse  " />
+              <TextInput placeholder="Rechercher une adresse  " 
+              
+              value={filterText}
+              onChangeText={(text) => setFilterText(text)}
+              />
             </View>
   
             <View style={style.sortBtn}>
@@ -185,9 +193,21 @@ const CardHouse = ({house}) =>{
          
        <View>
 
-            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} 
-             
-            />}/>
+            <FlatList data={houseData}  renderItem={({ item }) => <CardHouse house={item} />}
+            
+            />
+            {/* <FlatList
+        data={filteredHouses}
+        renderItem={({ item }) => (
+          // <View>
+          //   <Text>{item.location}</Text>
+            
+          // </View>
+          <CardHouse house={item.location} />
+            
+        )}
+        keyExtractor={(item) => item.id.toString()}
+      /> */}
                                   
        </View>
           </ScrollView>

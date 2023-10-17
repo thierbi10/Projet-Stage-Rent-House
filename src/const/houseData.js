@@ -3,7 +3,7 @@ const houseData = [
       id: '1',
       nom: 'Sipresse Maison',
       location: 'The Hollies House',
-      locations: 'SN. Dakar',
+      locations: 'SN. Saint louis',
       ref: 'PRIX. 2.500.000/ annee',
       im: require('../assets/house3.jpg'),
 

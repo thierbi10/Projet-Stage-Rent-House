@@ -116,10 +116,10 @@ export default function AppScreen() {
             transform: [{ scale: scaleValue }, { translateX: offsetValue }],
           }}>
         
-          <HomeScreen
+           <HomeScreen
             navigation={navigation}
             isSidebarOpen={isSidebarOpen}
-          />
+          /> 
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{
@@ -169,7 +169,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             justifyContent: 'center',
             paddingVertical: 5,
             paddingHorizontal: 5,
-            tintColor: currentTab === title ? '#153da8' : 'white',
+            tintColor: currentTab === title ? '#6e8ad8' : 'white',
           }}
         />
         <Text
@@ -180,7 +180,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
             borderRadius: 28,
             paddingRight: 40,
             overflow: 'hidden',
-            color: currentTab === title ? '#153da8' : 'white',
+            color: currentTab === title ? '#6e8ad8' : 'white',
           }}>
           {title}
         </Text>
@@ -192,7 +192,7 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#153da8',
+    backgroundColor: '#6e8ad8',
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },

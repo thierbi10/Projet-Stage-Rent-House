@@ -41,7 +41,7 @@ import { useNavigation } from "@react-navigation/native";
                 textAlign: "center",
               }}
             >
-              Discover Your Dream house here
+              Découvrez la maison de vos rêves ici
             </Text>
   
             <Text
@@ -53,7 +53,7 @@ import { useNavigation } from "@react-navigation/native";
                 marginTop:  10,
               }}
             >
-              Explore all the houses that exist based on your desires and financial possibilities
+             Explorez toutes les maisons qui existent en fonction de vos envies et de vos possibilités financières
             </Text>
           </View>
           <View

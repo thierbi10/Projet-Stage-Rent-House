@@ -106,7 +106,7 @@ const DetailScreen = ({navigation,route}) =>{
           </ImageBackground>  
           <View style={{marginTop:10}}>
             <Text style={{fontSize:16 , fontWeight:500,  color:COLORS.dark}} >Description</Text>
-            <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}} >The 3 level house that has a modern design, has a large pool and a garage that fits up to four cars... <Text style={{color:COLORS.blue}}>Show More</Text> </Text>
+            <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}} >La maison sur 3 niveaux au design moderne dispose d'une grande piscine et d'un garage pouvant accueillir jusqu'à quatre voitures... <Text style={{color:COLORS.blue}}>Show More</Text> </Text>
             <View style={style.header1}>
               <View style={{ flex:1,   flexDirection: 'row' , gap:10 ,alignItems:'center'}} >
               <TouchableOpacity onPress={handleNavigateTologin}>

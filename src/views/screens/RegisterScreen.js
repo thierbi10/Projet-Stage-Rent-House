@@ -1,16 +1,4 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
 import {
   SafeAreaView,
   StyleSheet,
@@ -74,7 +62,7 @@ const [password, setPassword] = useState('')
             }}
       
           >
-            Create a account
+             créez un compte
           </Text>
           <Text
             style={{
@@ -85,7 +73,8 @@ const [password, setPassword] = useState('')
               fontWeight:'bold'
             }}
           >
-           create an account so  you can expore all the existing house
+           
+       créez un compte pour pouvoir explorer toute la maison existante
           </Text>
         </View>
            <View
@@ -153,7 +142,7 @@ const [password, setPassword] = useState('')
               
             }}
           >
-           already have a account
+        Vous avez déjà un compte
           </Text>
         </TouchableOpacity>
 

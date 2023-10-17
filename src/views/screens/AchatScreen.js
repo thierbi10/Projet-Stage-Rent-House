@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   },
   text: {
     
-    fontSize: 15,
+    fontSize: 11,
     lineHeight: 25,
     
   },

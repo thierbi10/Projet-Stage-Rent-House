@@ -68,7 +68,7 @@ import { auth } from "../../firbase";
                 textAlign: "center",
               }}
             >
-              Welcome back you've been missed!
+                 Bon retour, tu nous as manqué !
             </Text>
           </View>
              <View
@@ -98,7 +98,7 @@ import { auth } from "../../firbase";
                 marginTop:-20,
               }}
             >
-              Forgot your password ?
+      Mot de passe oublié ?
             </Text>
           </View> 
   
@@ -142,7 +142,7 @@ import { auth } from "../../firbase";
                 fontSize: 20,
               }}
             >
-              Create new account
+              Créer un nouveau compte
             </Text>
           </TouchableOpacity>
   
@@ -158,7 +158,7 @@ import { auth } from "../../firbase";
                 fontSize: 15,
               }}
             >
-              Or continue with
+             Ou continuez avec
             </Text>
   
             <View

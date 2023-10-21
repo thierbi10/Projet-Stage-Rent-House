@@ -3,14 +3,16 @@ import { StyleSheet, Text, View, ScrollView, ImageBackground, Image } from 'reac
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import COLORS from '../../const/color';
+import COLORS from '../src/const/colorrr'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const AchatScreen = (props) => {
+const AchatScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+        <TouchableOpacity
+        //  onPress={() => props.navigation.goBack()}r
+         >
           <Feather name="chevron-left" color="#FFF" size={25} />
         </TouchableOpacity>
         <Feather name="shopping-cart" color="#FFF" size={25} />

@@ -9,8 +9,7 @@ import {
   Animated,
   PanResponder,
   TouchableWithoutFeedback,
-} from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+} from 'react-native'
 import home from '../../assets/icons/home.png';
 import chat from '../../assets/icons/chat.png';
 import badge from '../../assets/icons/badge.png';
@@ -23,7 +22,7 @@ import parametre from '../../assets/icons/parametre.png';
 import HomeScreen from './HomeScreen';
 
 export default function AppScreen() {
-  const navigation = useNavigation();
+  
   const [currentTab, setCurrentTab] = useState('Home');
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -117,13 +116,12 @@ export default function AppScreen() {
           }}>
         
            <HomeScreen
-            navigation={navigation}
+            // currentTab={currentTab}
             isSidebarOpen={isSidebarOpen}
           /> 
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{
-            
               top: 20,
               left: 20,
               zIndex: 1,

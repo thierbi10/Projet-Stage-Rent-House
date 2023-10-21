@@ -9,18 +9,17 @@ import {
     StyleSheet,
     Image,
     Pressable,
-    
-    Button,
     ImageBackground,
   } from 'react-native';
   import React, { useState } from 'react';
   import { ScrollView } from 'react-native-virtualized-view';
   
-import COLORS from '../../const/color';
-import places from '../../const/houses';
+import COLORS from '../../src/const/color';
+import places from '../../src/const/houses';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 //  import Icon from 'react-native-vector-icons/Fontisto';
-import houseData from '../../const/houseData';
+import houseData from '../../src/const/houseData';
+import { Link } from 'expo-router';
 const {width} = Dimensions.get('screen');
 
 
@@ -48,15 +47,13 @@ const ListCategories = () => {
     </View>
   );
 };
-const HomeScreen =({navigation})=>{
+const HomeScreen =()=>{
 const Card = ({place}) =>{
    return <ImageBackground  style={style.cardImage} source={place.image}>
     <View style={{ flex: 1, justifyContent: 'end', alignItems: 'flex-end',  }}>
      <Text style={{  paddingVertical:1, paddingHorizontal:10, backgroundColor: COLORS.grey, fontSize:11, color:COLORS.white,  borderRadius:20 }}>
        <Icon name="location-pin" size={10} style={{marginTop:15}} color={COLORS.white} />
         <Text >15 km</Text> 
-
-
             
      </Text>
    </View>
@@ -67,9 +64,9 @@ const Card = ({place}) =>{
 
 const CardHouse = ({house}) =>{
   return (
-    <Pressable
-    activeOpacity={0.8}
-    onPress={() => navigation.navigate('DetailScreen', house)}>
+    
+  
+    // <Link href= "/DetailScreen">
   <View style={style.CardHouseCont}>
      <Image source={house.im} style={style.cardImages} />
      <View >
@@ -96,7 +93,7 @@ const CardHouse = ({house}) =>{
             </View>
      </View>
   </View>
-  </Pressable>
+  // </Link>
 )}
     return (
         <SafeAreaView style={{backgroundColor: COLORS.white, flex: 1}}>

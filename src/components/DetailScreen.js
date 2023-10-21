@@ -2,11 +2,11 @@
 
 import React from 'react';
 import { SafeAreaView, StyleSheet, View,Image, Text, ImageBackground, FlatList,Dimensions, ScrollView, TouchableOpacity, Linking } from 'react-native';
-import COLORS from '../../const/color';
+import COLORS from '../const/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Iconf from 'react-native-vector-icons/FontAwesome';
 const {width} = Dimensions.get('screen');
-import houseData from '../../const/houseData';
+import houseData from '../const/houseData';
 import { useNavigation } from '@react-navigation/native';
 
 const InteriorCard= ({interior}) => {
@@ -119,7 +119,7 @@ const DetailScreen = ({navigation,route}) =>{
             
             <View style={style.header1}>
               <View style={{ flex:1,   flexDirection: 'row' , gap:10 ,alignItems:'center'}} >
-              <Image  style={{width:50 , height:50 ,borderRadius:50}} source={require('../../assets/person.jpg')} />
+              <Image  style={{width:50 , height:50 ,borderRadius:50}} source={require('../src/assets/person.jpg')} />
                 <View>
                   <Text style={{fontSize:16 , fontWeight:500,  color:COLORS.dark}} >Garry Allen</Text>
                   <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}}>Owner</Text>

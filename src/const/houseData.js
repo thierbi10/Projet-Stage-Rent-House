@@ -5,7 +5,7 @@ const houseData = [
       location: 'The Hollies House',
       locations: 'SN. Dakar',
       ref: 'PRIX. 2.500.000/ annee',
-      im: require('../assets/house3.jpg'),
+      im: require('../assets/house1.jpg'),
 
     details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
     interiors: [
@@ -50,7 +50,7 @@ const houseData = [
       locations: 'Jl. Sultan Iskandar Mudas',
       location: 'SN. Mbour',
       ref: 'PRIX. 3.500.000/ annee',
-      im: require('../assets/house3.jpg'),
+      im: require('../assets/house2.jpg'),
       details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
       interiors: [
         require('../assets/interior1.jpg'),

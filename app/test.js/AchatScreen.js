@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, ScrollView, ImageBackground, Image } from 'reac
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import COLORS from '../src/const/colorrr'
+import COLORS from '../../src/const/color'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const AchatScreen = () => {
@@ -18,7 +18,7 @@ const AchatScreen = () => {
         <Feather name="shopping-cart" color="#FFF" size={25} />
       </View>
 
-      <Image source={require('../../img/house1.jpg')} style={styles.img}  />
+      <Image source={require('../../src/assets/house1.jpg')} style={styles.img}  />
 
       <View style={styles.cont3}>
       <View style={styles.header1}>

@@ -12,11 +12,12 @@ import { Ionicons } from "@expo/vector-icons";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 
-import { useNavigation } from "@react-navigation/native";
-import COLORS from "../../const/color";
-import Input from "../../components/Input";
-import { auth } from "../../firbase";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
+import COLORS from "../../src/const/color";
+import Input from "../../src/components/Input";
+import { Link } from "expo-router";
+// import { auth } from "../../firbase";
+// import { createUserWithEmailAndPassword } from "firebase/auth";
 
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { auth } from "../../firbase";
@@ -25,22 +26,23 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const RegisterScreen = () => {
   
-const navigation = useNavigation();
+// const navigation = useNavigation();
 const [nom, setNom] = useState('')
 const [email, setEmail] = useState('')
 const [password, setPassword] = useState('')
 
 
-  const handleSignUp = () => {
-    createUserWithEmailAndPassword (auth, email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        navigation.navigate("AchatScreen")
-        console.log('Registered with:', user.email);
+  // const handleSignUp = () => {
+  //   createUserWithEmailAndPassword (auth, email, password)
+  //     .then(userCredentials => {
+  //       const user = userCredentials.user;
+  //       navigation.navigate("AchatScreen")
+  //       console.log('Registered with:', user.email);
         
-      })
-      .catch(error => alert(error.message))
-  }
+  //     })
+  //     .catch(error => alert(error.message))
+  // }
+
   return (
     <SafeAreaView>
       <View
@@ -100,8 +102,8 @@ const [password, setPassword] = useState('')
 
       
 
-        <TouchableOpacity
-     onPress={handleSignUp}
+         <Link href='/test.js/AchatScreen'
+    //  onPress={handleSignUp}
     style={{
       padding: 10,
       backgroundColor: COLORS.blue,
@@ -125,7 +127,7 @@ const [password, setPassword] = useState('')
     >
       Sign up
     </Text>
-  </TouchableOpacity>
+  </Link>
           <TouchableOpacity
           // onPress={() => navigate("Register")}
           style={{
@@ -223,6 +225,7 @@ export default RegisterScreen;
 
 const styles = StyleSheet.create({
   fff:{
+
   }
 });
 

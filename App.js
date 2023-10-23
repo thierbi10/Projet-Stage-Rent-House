@@ -15,6 +15,9 @@ import testScreen from './src/components/test.js/test';
 
 const Stack = createStackNavigator();
 
+
+
+
 const App = () => {
   return (
     <NavigationContainer>

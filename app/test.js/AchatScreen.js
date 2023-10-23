@@ -42,6 +42,9 @@ const AchatScreen = () => {
 <Icon name="location-on" size={20} color={COLORS.blue} />
  <Text> Dakar,hlm4,VILLA 1001</Text>
 
+
+
+
 </View>
 
   <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', marginRight:30,   gap:10 ,alignItems:'center'}}>

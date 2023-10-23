@@ -124,6 +124,7 @@ const CardHouse = ({house}) =>{
               justifyContent: 'space-between',
               paddingHorizontal: 10,
             }}>
+              
             <View style={style.searchInputContainer}>
               <Icon name="search" color={COLORS.grey} size={25} />
               <TextInput placeholder="Rechercher une adresse  " />

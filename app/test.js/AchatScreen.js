@@ -3,20 +3,22 @@ import { StyleSheet, Text, View, ScrollView, ImageBackground, Image } from 'reac
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import Feather from "@expo/vector-icons/Feather";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import COLORS from '../../const/color';
+import COLORS from '../../src/const/color'
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
-const AchatScreen = (props) => {
+const AchatScreen = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => props.navigation.goBack()}>
+        <TouchableOpacity
+        //  onPress={() => props.navigation.goBack()}r
+         >
           <Feather name="chevron-left" color="#FFF" size={25} />
         </TouchableOpacity>
         <Feather name="shopping-cart" color="#FFF" size={25} />
       </View>
 
-      <Image source={require('../../img/house1.jpg')} style={styles.img}  />
+      <Image source={require('../../src/assets/house1.jpg')} style={styles.img}  />
 
       <View style={styles.cont3}>
       <View style={styles.header1}>
@@ -39,6 +41,9 @@ const AchatScreen = (props) => {
 <View style={{flex:1, flexDirection: 'row' ,marginVertical:20, gap:10 ,alignItems:'center'}}>
 <Icon name="location-on" size={20} color={COLORS.blue} />
  <Text> Dakar,hlm4,VILLA 1001</Text>
+
+
+
 
 </View>
 

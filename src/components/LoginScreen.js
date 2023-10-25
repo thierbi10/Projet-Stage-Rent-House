@@ -2,21 +2,23 @@
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import COLORS from '../../const/color'
-import { auth } from '../../firbase';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import COLORS from '../src/const/color'
+// import { auth } from '../../firbase';
+// import {signInWithEmailAndPassword } from '../../firbase/auth';
 
  
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  const handleNavigateToRegister = () => {
-    navigation.navigate('RegisterScreen');
-  };
-//   const navigation = useNavigation()
+
+//   const navigation = useNavigation();
+ const [email, setEmail] = useState('');
+const [password, setPassword] = useState('');
+
+//   const handleNavigateToRegister = () => {
+//     navigation.navigate('RegisterScreen');
+//   };
+// //   const navigation = useNavigation()
 
 //   useEffect(() => {
 //     const unsubscribe = auth.onAuthStateChanged(user => {
@@ -28,14 +30,14 @@ const LoginScreen = () => {
 //     return unsubscribe
 //   }, [])
 
-  const handleLogin = () => {
-    signInWithEmailAndPassword (auth, email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        console.log('Logged in with:', user.email);
-      })
-      .catch(error => alert(error.message))
-  }
+  // const handleLogin = () => {
+  //   signInWithEmailAndPassword (auth, email, password)
+  //     .then(userCredentials => {
+  //       const user = userCredentials.user;
+  //       console.log('Logged in with:', user.email);
+  //     })
+  //     .catch(error => alert(error.message))
+  // }
 
   return (
     <KeyboardAvoidingView
@@ -65,7 +67,7 @@ const LoginScreen = () => {
         >
           <Text style={styles.forgotPasswordText}>Mot de passe oublié</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={handleNavigateToRegister}>
+        <TouchableOpacity >
         <Text style={styles.forgotPasswordText}>S'inscrire</Text>
       </TouchableOpacity>
 
@@ -75,7 +77,7 @@ const LoginScreen = () => {
 
       <View style={styles.buttonContainer}>
         <TouchableOpacity
-          onPress={handleLogin}
+          // onPress={handleLogin}
           style={styles.button}
         >
           <Text style={styles.buttonText}>Login</Text>

@@ -10,11 +10,14 @@ import React, { useState } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-import COLORS from "../../const/color";
-import Input from "../Input";
-import { useNavigation } from "@react-navigation/native";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../firbase";
+import COLORS from "../../src/const/color";
+import Input from "../../src/components/Input";
+import { Link } from "expo-router";
+
+// import { useNavigation } from "@react-navigation/native";
+
+// import { signInWithEmailAndPassword } from "firebase/auth";
+// import { auth } from "../../src/firbase";
 
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { auth } from "../../firbase";
@@ -23,21 +26,21 @@ import { auth } from "../../firbase";
   
   const Test = () => {
     
-  const navigation = useNavigation();
+  // const navigation = useNavigation();
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
   
-  const handleLogin = () => {
-    signInWithEmailAndPassword (auth, email, password)
-      .then(userCredentials => {
-        const user = userCredentials.user;
-        navigation.navigate("AchatScreen")
-        console.log('Logged in with:', user.email);
-      })
-      .catch(error => alert(error.message))
-  }
+  // const handleLogin = () => {
+  //   signInWithEmailAndPassword (auth, email, password)
+  //     .then(userCredentials => {
+  //       const user = userCredentials.user;
+  //       navigation.navigate("AchatScreen")
+  //       console.log('Logged in with:', user.email);
+  //     })
+  //     .catch(error => alert(error.message))
+  // }
 
     return (
       <SafeAreaView>
@@ -102,8 +105,8 @@ import { auth } from "../../firbase";
             </Text>
           </View> 
   
-          <TouchableOpacity
-      onPress={handleLogin}
+          <Link href='/test.js/AchatScreen'
+      // onPress={handleLogin}
       
       style={{
         padding: 10,
@@ -119,6 +122,8 @@ import { auth } from "../../firbase";
         shadowRadius: 10,
       }}
     >
+ 
+
       <Text
         style={{
           color: COLORS.white,
@@ -128,8 +133,10 @@ import { auth } from "../../firbase";
       >
         Sign in
       </Text>
-    </TouchableOpacity>
-            <TouchableOpacity
+      </Link>
+    
+    <Link href='/test.js/RegisterScreen'
+            
             // onPress={() => navigate("Register")}
             style={{
               padding: 10,
@@ -144,7 +151,7 @@ import { auth } from "../../firbase";
             >
               Créer un nouveau compte
             </Text>
-          </TouchableOpacity>
+          </Link>
   
           <View
             style={{

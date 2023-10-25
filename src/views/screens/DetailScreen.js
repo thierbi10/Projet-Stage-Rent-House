@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import COLORS from '../../const/color';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Iconf from 'react-native-vector-icons/FontAwesome';
 import { useNavigation } from '@react-navigation/native';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
@@ -103,12 +102,12 @@ const DetailScreen = ({ navigation, route }) => {
         <ImageBackground style={styles.backgroundImage} source={house.im}>
           <View style={styles.header}>
             <View style={styles.headerBtn}>
-              <Icon
+               <Icon
                 name="arrow-back-ios"
                 size={20}
                 color={COLORS.white}
                 onPress={navigation.goBack}
-              />
+               />
             </View>
             <View style={styles.headerBtn}>
               <Icon name="turned-in-not" size={20} color={COLORS.white} />
@@ -145,7 +144,7 @@ const DetailScreen = ({ navigation, route }) => {
         <Text style={{ fontSize: 16, fontWeight: '500', color: COLORS.dark }}>Description</Text>
         <Text style={{ fontSize: 12, fontWeight: 400, color: COLORS.grey }}>
           La maison sur 3 niveaux au design moderne dispose d'une grande piscine et d'un garage pouvant accueillir jusqu'à
-          quatre voitures... <Text style={{ color: COLORS.blue }}>Show More</Text>
+          quatre voitures...<Text style={{ color: COLORS.blue }}>Show More</Text>
         </Text>
         <View style={styles.header1}>
           <View style={{ flex: 1, flexDirection: 'row', gap: 10, alignItems: 'center' }}>
@@ -158,7 +157,7 @@ const DetailScreen = ({ navigation, route }) => {
 
         <View>
           <Text style={{ fontSize: 16, marginTop: -12, fontWeight: '500', color: COLORS.dark }}>Gallery</Text>
-
+          
           <FlatList
             style={{ height: 90 }}
             horizontal
@@ -167,7 +166,7 @@ const DetailScreen = ({ navigation, route }) => {
             renderItem={({ item }) => <InteriorCard interior={item} />}
           />
         </View>
-
+        
         <View style={{ 
           
           flex: 1, 
@@ -179,13 +178,7 @@ const DetailScreen = ({ navigation, route }) => {
          }}>
           <View
             style={{
-              
-            
               width: '100%',
-             
-              
-            
-            
             }}
           >
             <MapView
@@ -222,7 +215,6 @@ const styles = StyleSheet.create({
     overflow: 'hidden', // Pour appliquer le border radius
     borderRadius: 10,
     height: 120, // Hauteur de la carte
-   
   },
   backgroundImageContainer: {
     elevation: 20,

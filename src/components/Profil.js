@@ -14,6 +14,7 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
 import COLORS from "../../src/const/color";
+import places from "../../src/const/houses";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import houseData from "../../src/const/houseData";
 
@@ -167,6 +168,11 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 10,
   },
+  profileImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+  },
   searchInputContainer: {
     height: 50,
     backgroundColor: COLORS.light,
@@ -176,6 +182,11 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 12,
   },
+  buttonContainer1: {
+    backgroundColor: COLORS.blue,
+    borderRadius: 30,
+    margin: 10,
+  },
   sortBtn: {
     backgroundColor: COLORS.blue,
     height: 50,
@@ -184,6 +195,63 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 10,
+  },
+  cardImage: {
+    height: 220,
+    width: width / 2,
+    borderColor: COLORS.blue,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    justifyContent: "center",
+    borderColor: COLORS.red,
+  },
+  buttonContainer: {
+    marginVertical: 20,
+  },
+  optionsCard: {
+    height: 210,
+    width: width / 2 - 30,
+    elevation: 15,
+    alignItems: "center",
+    backgroundColor: COLORS.white,
+    borderRadius: 20,
+    paddingTop: 10,
+    paddingHorizontal: 10,
+  },
+  optionsCardImage: {
+    height: 140,
+    borderRadius: 10,
+    width: "100%",
+  },
+  optionListsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+    paddingHorizontal: 10,
+  },
+  categoryListText: {
+    fontSize: 16,
+    color: COLORS.grey,
+    padding: 12,
+  },
+  activeCategoryListText: {
+    backgroundColor: COLORS.blue,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+    color: COLORS.white,
+  },
+  categoryListContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 15,
+    paddingHorizontal: 10,
   },
   CardHouseCont: {
     height: 110,
@@ -204,23 +272,6 @@ const style = StyleSheet.create({
   },
   facility: { flexDirection: "row", marginRight: 15 },
   facilityText: { marginLeft: 5, color: COLORS.grey },
-  categoryListText: {
-    fontSize: 16,
-    color: COLORS.grey,
-    padding: 12,
-  },
-  activeCategoryListText: {
-    backgroundColor: COLORS.blue,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    color: COLORS.white,
-  },
-  categoryListContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 15,
-    paddingHorizontal: 10,
-  },
 });
 
 export default HomeScreen;

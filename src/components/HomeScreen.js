@@ -14,8 +14,11 @@ import {
 } from "react-native";
 import { ScrollView } from "react-native-virtualized-view";
 import COLORS from "../../src/const/color";
+import places from "../../src/const/houses";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import houseData from "../../src/const/houseData";
+import { Link } from "expo-router";
+
 
 const { width } = Dimensions.get("screen");
 
@@ -41,6 +44,49 @@ const ListCategories = ({ selectedCategoryIndex, setSelectedCategoryIndex }) => 
   );
 };
 
+const Card = ({ place }) => {
+  return (
+    <ImageBackground style={style.cardImage} source={place.image}>
+      <View
+        style={{ flex: 1, justifyContent: "end", alignItems: "flex-end" }}
+      >
+        <Text
+          style={{
+            paddingVertical: 1,
+            paddingHorizontal: 10,
+            backgroundColor: COLORS.grey,
+            fontSize: 11,
+            color: COLORS.white,
+            borderRadius: 20,
+          }}
+        >
+          <Icon
+            name="location-pin"
+            size={10}
+            style={{ marginTop: 15 }}
+            color={COLORS.white}
+          />
+          <Text>15 km</Text>
+        </Text>
+      </View>
+      <Text
+        style={{
+          color: COLORS.white,
+          fontSize: 16,
+          marginTop: 140,
+          fontWeight: 500,
+        }}
+      >
+        {place.name}
+      </Text>
+      <Text style={{ color: COLORS.white, fontSize: 12, fontWeight: 400 }}>
+        {place.location}
+      </Text>
+    </ImageBackground>
+  );
+};
+
+
 const HomeScreen = () => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
@@ -53,8 +99,10 @@ const HomeScreen = () => {
     );
   });
 
+
   const CardHouse = ({ house }) => {
     return (
+      <Link href={{ pathname: '/DetailScreen', params: { house } }}>
       <View style={style.CardHouseCont}>
         <Image source={house.image} style={style.cardImages} />
         <View>
@@ -83,6 +131,7 @@ const HomeScreen = () => {
           </View>
         </View>
       </View>
+      </Link>
     );
   };
 
@@ -128,6 +177,36 @@ const HomeScreen = () => {
           selectedCategoryIndex={selectedCategoryIndex}
           setSelectedCategoryIndex={setSelectedCategoryIndex}
         />
+         <View
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            paddingHorizontal: 10,
+            marginTop: 20,
+          }}
+        >
+          <View>
+            <Text
+              style={{ color: COLORS.dark, fontSize: 14, fontWeight: "bold" }}
+            >
+              Près de toi
+            </Text>
+          </View>
+          <View>
+            <Text style={{ color: COLORS.grey, fontSize: 12 }}>voir plus</Text>
+          </View>
+        </View>
+
+         <View style={{ marginTop: 17 }}>
+          <FlatList
+            contentContainerStyle={{ paddingLeft: 10 }}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            data={places}
+            renderItem={({ item }) => <Card place={item} />}
+          />
+        </View>
         <View
           style={{
             flexDirection: "row",
@@ -152,7 +231,7 @@ const HomeScreen = () => {
           <FlatList
             data={filteredHouses}
             renderItem={({ item }) => <CardHouse house={item} />}
-            keyExtractor={(item) => item.id.toString()}
+            
           />
         </View>
       </ScrollView>
@@ -167,6 +246,11 @@ const style = StyleSheet.create({
     justifyContent: "space-between",
     paddingHorizontal: 10,
   },
+  profileImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
+  },
   searchInputContainer: {
     height: 50,
     backgroundColor: COLORS.light,
@@ -176,6 +260,11 @@ const style = StyleSheet.create({
     paddingHorizontal: 10,
     borderRadius: 12,
   },
+  buttonContainer1: {
+    backgroundColor: COLORS.blue,
+    borderRadius: 30,
+    margin: 10,
+  },
   sortBtn: {
     backgroundColor: COLORS.blue,
     height: 50,
@@ -184,6 +273,64 @@ const style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginLeft: 10,
+  },
+  cardImage: {
+    height: 220,
+    width: width / 2,
+    borderColor: COLORS.blue,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 10,
+    overflow: "hidden",
+  },
+  container: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    justifyContent: "center",
+    borderColor: COLORS.red,
+  },
+  buttonContainer: {
+    marginVertical: 20,
+  },
+  optionsCard: {
+    height: 210,
+    width: width / 2 - 30,
+    elevation: 15,
+    alignItems: "center",
+    backgroundColor: COLORS.white,
+    borderRadius: 20,
+    paddingTop: 10,
+    paddingHorizontal: 10,
+  },
+  optionsCardImage: {
+    height: 140,
+    borderRadius: 10,
+    width: "100%",
+  },
+  optionListsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 20,
+    paddingHorizontal: 10,
+  },
+  categoryListText: {
+    fontSize: 16,
+    color: COLORS.grey,
+    padding: 12,
+  },
+  activeCategoryListText: {
+    backgroundColor: COLORS.blue,
+    paddingHorizontal: 12,
+    textDecorationLine: "none",
+    borderRadius: 12,
+    color: COLORS.white,
+  },
+  categoryListContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginTop: 15,
+    paddingHorizontal: 10,
   },
   CardHouseCont: {
     height: 110,
@@ -204,23 +351,6 @@ const style = StyleSheet.create({
   },
   facility: { flexDirection: "row", marginRight: 15 },
   facilityText: { marginLeft: 5, color: COLORS.grey },
-  categoryListText: {
-    fontSize: 16,
-    color: COLORS.grey,
-    padding: 12,
-  },
-  activeCategoryListText: {
-    backgroundColor: COLORS.blue,
-    paddingHorizontal: 12,
-    borderRadius: 12,
-    color: COLORS.white,
-  },
-  categoryListContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 15,
-    paddingHorizontal: 10,
-  },
 });
 
 export default HomeScreen;

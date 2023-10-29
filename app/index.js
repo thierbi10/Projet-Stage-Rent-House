@@ -118,6 +118,8 @@ const index = () => {
             
             isSidebarOpen={isSidebarOpen}
           /> 
+      {/* <Link href='./AchatScreen.js'> DD</Link> */}
+
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{

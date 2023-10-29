@@ -17,7 +17,13 @@ import Iconf from "react-native-vector-icons/FontAwesome";
 import { Link, useRouter } from 'expo-router';
 import * as Location from 'expo-location';
 import MapView, { Marker } from 'react-native-maps';
+import { ScrollView } from "react-native-virtualized-view";
 
+const interiors = [
+  require('../src/assets/interior1.jpg'),
+  require('../src/assets/interior2.jpg'),
+  require('../src/assets/interior3.jpg'),
+]
 const { width } = Dimensions.get("window");
 
 const InteriorCard = ({ interior }) => {
@@ -77,8 +83,8 @@ const DetailScreen = () => {
   }, []);
 
   return (
-    <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
-      <View style={styles.backgroundImageContainer}>
+    <SafeAreaView >
+            <View style={styles.backgroundImageContainer}>
         <ImageBackground
           style={styles.backgroundImage}
           source={require("../src/assets/house1.jpg")}
@@ -127,6 +133,8 @@ const DetailScreen = () => {
             </View>
           </View>
         </ImageBackground>
+    {/* <ScrollView> */}
+
         <View style={{ marginTop: 10 }}>
           <Text style={{ fontSize: 16, fontWeight: '500', color: COLORS.dark }}>
             Description
@@ -145,9 +153,9 @@ const DetailScreen = () => {
                 alignItems: "center",
               }}
             >
-              <Link href="/test.js/test">
-                <Text style={styles.headerBtn13}> louer</Text>
-              </Link>
+              <Link  style={styles.headerBtn13}  href="/test/test"> 
+                <Text> Réserver</Text>
+         </Link> 
             </View>
             <Text> Prix : 150.0000 fcfa/mois</Text>
           </View>
@@ -179,7 +187,7 @@ const DetailScreen = () => {
               </View>
             </View>
             <TouchableOpacity
-              style={styles.headerBtn12}
+             style={styles.headerBtn12}
               onPress={handlePhoneButtonClick}
             >
               <Icon name="phone" size={20} color={COLORS.white} />
@@ -210,20 +218,24 @@ const DetailScreen = () => {
               style={{ height: 30 }}
               horizontal
               showsHorizontalScrollIndicator={false}
-              data={house?.interiors || []}
+              data={interiors}
               renderItem={({ item }) => <InteriorCard interior={item} />}
             />
-            <View
+             <View
               style={{
                 flex: 1,
-                height: 30,
-                paddingHorizontal: 10,
+                height: 40,
+                borderRadius: 20,
+                
+                marginTop:20,
+                // paddingHorizontal: 10,
                 paddingTop: 20,
               }}
             >
               <View
                 style={{
                   width: '100%',
+                  // height:35,
                 }}
               >
                 <MapView
@@ -245,11 +257,28 @@ const DetailScreen = () => {
                     description="La belle ville de Dakar"
                   />
                 </MapView>
-              </View>
+                {/* <View style={styles.header1}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                gap: 10,
+                alignItems: "center",
+              }}
+            >
+              <Text> Prix : 150.0000 fcfa/mois</Text>
             </View>
+            
+            <Link  style={styles.headerBtn13}  href="/test/test"> 
+                <Text> louer  </Text>
+         </Link> 
+          </View> */}
+              </View> 
+            </View> 
           </View>
         </View>
-      </View>
+      {/* </ScrollView> */}
+        </View>
     </SafeAreaView>
   );
 };
@@ -323,9 +352,11 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     backgroundColor: COLORS.blue,
     paddingHorizontal: 20,
-    paddingVertical: 7,
+    // padding:10,
+    paddingVertical: 12,
     color: COLORS.white,
     borderRadius: 10,
+    fontSize: 16,
     justifyContent: "center",
     alignItems: "center",
   },

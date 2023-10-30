@@ -36,10 +36,10 @@ const [password, setPassword] = useState('')
   const handleSignUp = () => {
     createUserWithEmailAndPassword (auth, email, password)
       .then(userCredentials => {
-        const user = userCredentials.user;
+    const user = userCredentials.user;
         console.log('Registered with:', user.email);
-        router.replace('/AchatScreen.js');
-
+        const path =    router.push({pathname: "/Achat/AchatScreen"});
+        console.log(path);
         // setDoc(doc(db, "users", user.uid), {
         //   prenom: prenom,
         //   nom: nom, 
@@ -54,7 +54,6 @@ const [password, setPassword] = useState('')
         const errorCode = error.code;
         if (errorCode === 'auth/email-already-in-use') {
           alert("Utilisateur existant !");
-          reset();
         }else if(errorCode === 'auth/weak-password'){
           alert("Mot de passe faible, utlisez minimum 6 caractères !")
         }else if(errorCode === 'email-already-in-use'){
@@ -234,6 +233,7 @@ const [password, setPassword] = useState('')
     </TouchableOpacity>
     </View>
   {/* </Link> */}
+  <Link href="/Achat/AchatScreen"  >
           <TouchableOpacity
           // onPress={() => navigate("Register")}
           style={{
@@ -253,7 +253,7 @@ const [password, setPassword] = useState('')
         Vous avez déjà un compte
           </Text>
         </TouchableOpacity>
-
+</Link>
         <View
           style={{
             marginVertical: 10,

@@ -29,9 +29,12 @@ const Test = () => {
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
-        // navigation.navigate("AchatScreen")
-             const router = useRouter();
-             router.push('./achat/AchatScreen.js');
+        
+      // Utilisez useRouter() dans un composant pour obtenir l'objet de routage.
+      // Ensuite, appelez router.push() pour naviguer.
+      const path =    router.push({pathname: "/Achat/AchatScreen"});
+      
+   
       })
       .catch((error) => {
         const errorCode = error.code;

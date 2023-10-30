@@ -1,93 +1,115 @@
 const houseData = [
-    {
-      id: '1',
-      nom: 'Sipresse Maison',
-      location: 'The Hollies House',
-      locations: 'SN. Dakar',
-      ref: 'PRIX. 2.500.000/ annee',
-      im: require('../assets/house1.jpg'),
-
-    details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-    interiors: [
-      require('../assets/interior1.jpg'),
-      require('../assets/interior2.jpg'),
-      require('../assets/interior3.jpg'),
-    ], 
+  {
+    id: 1,
+    name: "House ",
+    location: "Diourbel",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Hotel",
+    image: require("../assets/house2.jpg"),
+  
   },
-    {
-      id: '2',
-      nom: 'Hlm Maison',
-      locations: 'Jl. Sultan Iskandar Mudas',
-      location: 'SN. Saint louis',
-      ref: 'PRIX. 2.500.000/ annee',
-      im: require('../assets/house4.jpg'),
-
-      details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-      interiors: [
-        require('../assets/interior1.jpg'),
-        require('../assets/interior2.jpg'),
-        require('../assets/interior3.jpg'),
-      ],
-    },
-    {
-      id: '3',
-      nom: 'Sipresse Maison',
-      location: 'SN. Thies',
-      ref: 'PRIX. 2.500.000/ annee',
-
-      im: require('../assets/dreamville.png'),
-
-      details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-      interiors: [
-        require('../assets/interior1.jpg'),
-        require('../assets/interior2.jpg'),
-        require('../assets/interior3.jpg'),
-      ],
-    },
-    {
-      id: '4',
-      nom: 'Sipresse Maison',
-      locations: 'Jl. Sultan Iskandar Mudas',
-      location: 'SN. Mbour',
-      ref: 'PRIX. 3.500.000/ annee',
-      im: require('../assets/house2.jpg'),
-      details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-      interiors: [
-        require('../assets/interior1.jpg'),
-        require('../assets/interior2.jpg'),
-        require('../assets/interior3.jpg'),
-      ],
-    },
-    {
-      id: '5',
-      nom: 'Sipresse Maison',
-      location: ' SN. Dakar',
-      locations: 'Rufisque',
-      ref: 'PRIX. 2.500.000/ annee',
-      im: require('../assets/ascothouse.png'),
-
-      details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-      interiors: [
-        require('../assets/interior1.jpg'),
-        require('../assets/interior2.jpg'),
-        require('../assets/interior3.jpg'),
-      ],
-    },
-    {
-      id: '6',
-      nom: 'Sipresse  Maison',
-      ref: 'PRIX. 2.500.000/ annee',
-      location: 'SN. Matam',
-      locations: 'HML',
-      im: require('../assets/house3.jpg'),
-      details: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consequat nisl vel pretium lectus quam id leo. Velit euismod in pellentesque massa placerat duis ultricies lacus sed. Justo laoreet sit amet cursus sit.`,
-      interiors: [
-        require('../assets/interior1.jpg'),
-        require('../assets/interior2.jpg'),
-        require('../assets/interior3.jpg'),
-      ],
-    },
+  {
+    id: 2,
+    name: "Apartment ",
+    location: "Kolda",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Hotel",
+    image: require("../assets/house3.jpg"), 
   
-  ];
+  },
+  {
+    id: 3,
+    name: "Hotel ",
+    location: "Dakar",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/villa2.png"), 
   
-  export default houseData;
+  },
+  {
+    id: 4,
+    name: "Hotel ",
+    location: "Matam",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Villa",
+    image: require("../assets/house3.jpg"), 
+  
+  },
+  {
+    id: 5,
+    name: "Hotel ",
+    location: "Louga",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Hotel",
+    image: require("../assets/villa1.png"), 
+  
+  },
+  {
+    id: 6,
+    name: "Hotel ",
+    location: "Dakar",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/interior2.jpg"), 
+  
+  },
+  {
+    id: 7,
+    name: "Hotel ",
+    location: "Rufisque",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/interior3.jpg"), 
+  
+  },
+
+  {
+    id: 8,
+    name: "Hotel ",
+    location: "Ziguinchor",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/interior1.jpg"), 
+  
+  },
+  {
+    id: 9,
+    name: "Villa ",
+    location: "Dakar",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/house3.jpg"), 
+  
+  },
+  {
+    id: 10,
+    name: "Villa ",
+    location: "Tamba",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Villa",
+    image: require("../assets/house2.jpg"), 
+  
+  },
+  {
+    id: 11,
+    name: "Villa ",
+    location: "Mbour",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Apartment",
+    image: require("../assets/house3.jpg"), 
+  
+  },
+  
+  {
+    id: 12,
+    name: "Villa ",
+    location: "Thies",
+    ref: 'PRIX. 2.500.000/ annee',
+    category: "Villa",
+    image: require("../assets/house2.jpg"), 
+  
+  }
+ 
+];
+
+export default houseData;

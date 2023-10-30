@@ -20,6 +20,7 @@ import profil from '../src/assets/icons/profil.png';
 import logout from '../src/assets/icons/logout.png';
 import parametre from '../src/assets/icons/parametre.png';
 import HomeScreen from '../src/components/HomeScreen';
+import Profil from '../src/components/Profil';
 
 const index = () => {
   const [currentTab, setCurrentTab] = useState('Home');

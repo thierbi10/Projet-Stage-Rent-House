@@ -27,7 +27,7 @@ const houseData = [
   
   },
   {
-    id: 3,
+    id: 4,
     name: "Hotel ",
     location: "Matam",
     ref: 'PRIX. 2.500.000/ annee',
@@ -36,7 +36,7 @@ const houseData = [
   
   },
   {
-    id: 3,
+    id: 5,
     name: "Hotel ",
     location: "Louga",
     ref: 'PRIX. 2.500.000/ annee',
@@ -45,7 +45,7 @@ const houseData = [
   
   },
   {
-    id: 3,
+    id: 6,
     name: "Hotel ",
     location: "Dakar",
     ref: 'PRIX. 2.500.000/ annee',
@@ -54,7 +54,7 @@ const houseData = [
   
   },
   {
-    id: 3,
+    id: 7,
     name: "Hotel ",
     location: "Rufisque",
     ref: 'PRIX. 2.500.000/ annee',
@@ -64,7 +64,7 @@ const houseData = [
   },
 
   {
-    id: 3,
+    id: 8,
     name: "Hotel ",
     location: "Ziguinchor",
     ref: 'PRIX. 2.500.000/ annee',
@@ -73,7 +73,7 @@ const houseData = [
   
   },
   {
-    id: 4,
+    id: 9,
     name: "Villa ",
     location: "Dakar",
     ref: 'PRIX. 2.500.000/ annee',
@@ -82,7 +82,7 @@ const houseData = [
   
   },
   {
-    id: 5,
+    id: 10,
     name: "Villa ",
     location: "Tamba",
     ref: 'PRIX. 2.500.000/ annee',
@@ -91,7 +91,7 @@ const houseData = [
   
   },
   {
-    id: 6,
+    id: 11,
     name: "Villa ",
     location: "Mbour",
     ref: 'PRIX. 2.500.000/ annee',
@@ -101,7 +101,7 @@ const houseData = [
   },
   
   {
-    id: 7,
+    id: 12,
     name: "Villa ",
     location: "Thies",
     ref: 'PRIX. 2.500.000/ annee',

@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import {
   SafeAreaView,
@@ -20,20 +21,20 @@ import houseData from "../../src/const/houseData";
 import { Link } from "expo-router";
 
 
-const { width } = Dimensions.get("screen");
+const { width } = Dimensions.get("window");
 
 const categoryList = ["House", "Apartment", "Hotel", "Villa"];
 
 const ListCategories = ({ selectedCategoryIndex, setSelectedCategoryIndex }) => {
   return (
-    <View style={style.categoryListContainer}>
+    <View style={styles.categoryListContainer}>
       {categoryList.map((category, index) => (
         <Pressable key={index} onPress={() => setSelectedCategoryIndex(index)}>
           <Text
             style={[
-              style.categoryListText,
-              index === selectedCategoryIndex && style.activeCategoryListText,
-              index === 0 && style.firstCategoryStyle,
+              styles.categoryListText,
+              index === selectedCategoryIndex && styles.activeCategoryListText,
+              index === 0 && styles.firstCategoryStyle,
             ]}
           >
             {category}
@@ -46,10 +47,8 @@ const ListCategories = ({ selectedCategoryIndex, setSelectedCategoryIndex }) => 
 
 const Card = ({ place }) => {
   return (
-    <ImageBackground style={style.cardImage} source={place.image}>
-      <View
-        style={{ flex: 1, justifyContent: "end", alignItems: "flex-end" }}
-      >
+    <ImageBackground style={styles.cardImage} source={place.image}>
+      <View style={{ flex: 1, justifyContent: "flex-end", alignItems: "flex-end" }}>
         <Text
           style={{
             paddingVertical: 1,
@@ -60,36 +59,24 @@ const Card = ({ place }) => {
             borderRadius: 20,
           }}
         >
-          <Icon
-            name="location-pin"
-            size={10}
-            style={{ marginTop: 15 }}
-            color={COLORS.white}
-          />
+          <Icon name="location-pin" size={10} style={{ marginTop: 15 }} color={COLORS.white} />
           <Text>15 km</Text>
         </Text>
       </View>
-      <Text
-        style={{
-          color: COLORS.white,
-          fontSize: 16,
-          marginTop: 140,
-          fontWeight: 500,
-        }}
-      >
+      <Text style={{ color: COLORS.white, fontSize: 16, marginTop: 140, fontWeight: "bold" }}>
         {place.name}
       </Text>
-      <Text style={{ color: COLORS.white, fontSize: 12, fontWeight: 400 }}>
+      <Text style={{ color: COLORS.white, fontSize: 12, fontWeight: "normal" }}>
         {place.location}
       </Text>
     </ImageBackground>
   );
 };
 
-
 const HomeScreen = () => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
+  const [showAllCards, setShowAllCards] = useState(false);
 
   const filteredHouses = houseData.filter((house) => {
     return (
@@ -100,37 +87,32 @@ const HomeScreen = () => {
   });
 
 
+  const visibleHouses = showAllCards ? filteredHouses : filteredHouses.slice(0, 4);
+
   const CardHouse = ({ house }) => {
     return (
       <Link href={{ pathname: '/DetailScreen', params: { house } }}>
-      <View style={style.CardHouseCont}>
-        <Image source={house.image} style={style.cardImages} />
-        <View>
-          <Text
-            style={{
-              color: COLORS.dark,
-              fontWeight: 500,
-              fontSize: 16,
-              marginTop: 5,
-            }}
-          >
-            {house.location}
-          </Text>
-          <Text style={{ color: COLORS.blue, fontSize: 14, marginTop: 5 }}>
-            {house.ref}
-          </Text>
-          <View style={{ marginTop: 10, flexDirection: "row" }}>
-            <View style={style.facility}>
-              <Icon name="hotel" color={COLORS.backgroundtrans} size={18} />
-              <Text style={style.facilityText}>{house.bedrooms} chambres</Text>
-            </View>
-            <View style={style.facility}>
-              <Icon name="bathtub" color={COLORS.backgroundtrans} size={18} />
-              <Text style={style.facilityText}>{house.bathrooms} salles de bain</Text>
+        <View style={styles.CardHouseCont}>
+          <Image source={house.image} style={styles.cardImages} />
+          <View>
+            <Text style={{ color: COLORS.dark, fontWeight: "bold", fontSize: 16, marginTop: 5 }}>
+              {house.location}
+            </Text>
+            <Text style={{ color: COLORS.blue, fontSize: 14, marginTop: 5 }}>
+              {house.ref}
+            </Text>
+            <View style={{ marginTop: 10, flexDirection: "row" }}>
+              <View style={styles.facility}>
+                <Icon name="hotel" color={COLORS.backgroundtrans} size={18} />
+                <Text style={styles.facilityText}>{house.bedrooms} chambres</Text>
+              </View>
+              <View style={styles.facility}>
+                <Icon name="bathtub" color={COLORS.backgroundtrans} size={18} />
+                <Text style={styles.facilityText}>{house.bathrooms} salles de bain</Text>
+              </View>
             </View>
           </View>
         </View>
-      </View>
       </Link>
     );
   };
@@ -142,12 +124,10 @@ const HomeScreen = () => {
         backgroundColor={COLORS.white}
         barStyle="dark-content"
       />
-      <View style={style.header}>
+      <View style={styles.header}>
         <View>
           <Text style={{ color: COLORS.grey }}>localisation</Text>
-          <Text
-            style={{ color: COLORS.dark, fontSize: 20, fontWeight: "bold" }}
-          >
+          <Text style={{ color: COLORS.dark, fontSize: 20, fontWeight: "bold" }}>
             Dakar
           </Text>
         </View>
@@ -161,7 +141,7 @@ const HomeScreen = () => {
             paddingHorizontal: 10,
           }}
         >
-          <View style={style.searchInputContainer}>
+          <View style={styles.searchInputContainer}>
             <Icon name="search" color={COLORS.grey} size={25} />
             <TextInput
               placeholder="Rechercher une adresse  "
@@ -169,7 +149,7 @@ const HomeScreen = () => {
               onChangeText={(text) => setSearchValue(text)}
             />
           </View>
-          <View style={style.sortBtn}>
+          <View style={styles.sortBtn}>
             <Icon name="tune" color={COLORS.white} size={25} />
           </View>
         </View>
@@ -177,7 +157,7 @@ const HomeScreen = () => {
           selectedCategoryIndex={selectedCategoryIndex}
           setSelectedCategoryIndex={setSelectedCategoryIndex}
         />
-         <View
+        <View
           style={{
             flexDirection: "row",
             justifyContent: "space-between",
@@ -187,18 +167,22 @@ const HomeScreen = () => {
           }}
         >
           <View>
-            <Text
-              style={{ color: COLORS.dark, fontSize: 14, fontWeight: "bold" }}
-            >
+            <Text style={{ color: COLORS.dark, fontSize: 14, fontWeight: "bold" }}>
               Près de toi
             </Text>
           </View>
           <View>
-            <Text style={{ color: COLORS.grey, fontSize: 12 }}>voir plus</Text>
+            {showAllCards ? null : (
+              <Text
+                style={{ color: COLORS.grey, fontSize: 12 }}
+                onPress={() => setShowAllCards(true)}
+              >
+                Voir plus
+              </Text>
+            )}
           </View>
         </View>
-
-         <View style={{ marginTop: 17 }}>
+        <View style={{ marginTop: 17 }}>
           <FlatList
             contentContainerStyle={{ paddingLeft: 10 }}
             horizontal
@@ -217,29 +201,34 @@ const HomeScreen = () => {
           }}
         >
           <View>
-            <Text
-              style={{ color: COLORS.dark, fontSize: 14, fontWeight: "bold" }}
-            >
+            <Text style={{ color: COLORS.dark, fontSize: 14, fontWeight: "bold" }}>
               Près de toi
             </Text>
           </View>
           <View>
-            <Text style={{ color: COLORS.grey, fontSize: 12 }}>voir plus</Text>
+            {showAllCards ? null : (
+              <Text
+                style={{ color: COLORS.grey, fontSize: 12 }}
+                onPress={() => setShowAllCards(true)}
+              >
+                Voir plus
+              </Text>
+            )}
           </View>
         </View>
         <View>
           <FlatList
-            data={filteredHouses}
+            data={visibleHouses}
             renderItem={({ item }) => <CardHouse house={item} />}
-            
           />
         </View>
       </ScrollView>
     </SafeAreaView>
   );
-};
+ };
 
-const style = StyleSheet.create({
+
+const styles = StyleSheet.create({
   header: {
     paddingVertical: 20,
     flexDirection: "row",

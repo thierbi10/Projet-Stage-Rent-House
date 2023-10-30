@@ -11,7 +11,7 @@ import { Ionicons } from "@expo/vector-icons";
 import Icon from "react-native-vector-icons/FontAwesome";
 import COLORS from "../../src/const/color";
 import Input from "../../src/components/Input";
-import { Link,   useRouter} from "expo-router";
+import { Link} from "expo-router";
 import { auth } from "../../src/firbase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
@@ -29,11 +29,11 @@ const Test = () => {
       .then(userCredentials => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
-        
-      // Utilisez useRouter() dans un composant pour obtenir l'objet de routage.
-      // Ensuite, appelez router.push() pour naviguer.
-      const path =    router.push({pathname: "/Achat/AchatScreen"});
-      
+        console.log('12');
+         router.push({pathname: "/Achat/AchatScreen"});
+         router.push({pathname: "/Achat/AchatScreen"});
+         
+         console.log('13');
    
       })
       .catch((error) => {

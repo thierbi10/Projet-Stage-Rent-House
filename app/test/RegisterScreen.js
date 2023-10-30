@@ -38,8 +38,9 @@ const [password, setPassword] = useState('')
       .then(userCredentials => {
     const user = userCredentials.user;
         console.log('Registered with:', user.email);
-        const path =    router.push({pathname: "/Achat/AchatScreen"});
-        console.log(path);
+       router.push({pathname: "/Achat/AchatScreen"});
+  
+        console.log('cccr');
         // setDoc(doc(db, "users", user.uid), {
         //   prenom: prenom,
         //   nom: nom, 
@@ -233,7 +234,7 @@ const [password, setPassword] = useState('')
     </TouchableOpacity>
     </View>
   {/* </Link> */}
-  <Link href="/Achat/AchatScreen"  >
+  {/* <Link href="/Achat/AchatScreen"  > */}
           <TouchableOpacity
           // onPress={() => navigate("Register")}
           style={{
@@ -253,7 +254,7 @@ const [password, setPassword] = useState('')
         Vous avez déjà un compte
           </Text>
         </TouchableOpacity>
-</Link>
+{/* </Link> */}
         <View
           style={{
             marginVertical: 10,

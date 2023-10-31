@@ -16,7 +16,6 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import Iconf from "react-native-vector-icons/FontAwesome";
 import { Link, useRouter } from 'expo-router';
 import * as Location from 'expo-location';
-import MapView, { Marker } from 'react-native-maps';
 import { ScrollView } from "react-native-virtualized-view";
 
 const interiors = [
@@ -238,7 +237,7 @@ const DetailScreen = () => {
                   // height:35,
                 }}
               >
-                <MapView
+                {/* <MapView
                   showsMyLocationButton={true}
                   showsUserLocation={true}
                   style={styles.map}
@@ -256,7 +255,7 @@ const DetailScreen = () => {
                     title="Dakar"
                     description="La belle ville de Dakar"
                   />
-                </MapView>
+                </MapView> */}
                 {/* <View style={styles.header1}>
             <View
               style={{

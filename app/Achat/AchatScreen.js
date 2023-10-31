@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   headerBtn13: {
-      
     marginLeft:5,
     backgroundColor: COLORS.blue,
     paddingHorizontal:20,

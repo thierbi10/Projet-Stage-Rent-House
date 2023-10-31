@@ -30,7 +30,7 @@ const Test = () => {
         const user = userCredentials.user;
         console.log('Logged in with:', user.email);
         console.log('12');
-         router.push({pathname: "/Achat/AchatScreen"});
+        //  router.push({pathname: "/Achat/AchatScreen"});
          router.push({pathname: "/Achat/AchatScreen"});
          
          console.log('13');

@@ -14,7 +14,7 @@ import {
 import COLORS from "../src/const/color";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Iconf from "react-native-vector-icons/FontAwesome";
-import { Link, useRouter } from 'expo-router';
+import { Link, useRouter } from 'expo-router';  // Il y a une coquille dans l'import (router au lieu de route)
 import * as Location from 'expo-location';
 import { ScrollView } from "react-native-virtualized-view";
 
@@ -83,7 +83,7 @@ const DetailScreen = () => {
 
   return (
     <SafeAreaView >
-            <View style={styles.backgroundImageContainer}>
+      <View style={styles.backgroundImageContainer}>
         <ImageBackground
           style={styles.backgroundImage}
           source={require("../src/assets/house1.jpg")}
@@ -132,7 +132,7 @@ const DetailScreen = () => {
             </View>
           </View>
         </ImageBackground>
-    {/* <ScrollView> */}
+        {/* <ScrollView> */}
 
         <View style={{ marginTop: 10 }}>
           <Text style={{ fontSize: 16, fontWeight: '500', color: COLORS.dark }}>
@@ -154,7 +154,7 @@ const DetailScreen = () => {
             >
               <Link  style={styles.headerBtn13}  href="/test/test"> 
                 <Text> Réserver</Text>
-         </Link> 
+              </Link> 
             </View>
             <Text> Prix : 150.0000 fcfa/mois</Text>
           </View>
@@ -220,21 +220,17 @@ const DetailScreen = () => {
               data={interiors}
               renderItem={({ item }) => <InteriorCard interior={item} />}
             />
-             <View
+            <View
               style={{
                 flex: 1,
                 height: 40,
                 borderRadius: 20,
-                
                 marginTop:20,
-                // paddingHorizontal: 10,
-                paddingTop: 20,
               }}
             >
               <View
                 style={{
                   width: '100%',
-                  // height:35,
                 }}
               >
                 {/* <MapView
@@ -257,27 +253,26 @@ const DetailScreen = () => {
                   />
                 </MapView> */}
                 {/* <View style={styles.header1}>
-            <View
-              style={{
-                flex: 1,
-                flexDirection: "row",
-                gap: 10,
-                alignItems: "center",
-              }}
-            >
-              <Text> Prix : 150.0000 fcfa/mois</Text>
-            </View>
-            
-            <Link  style={styles.headerBtn13}  href="/test/test"> 
-                <Text> louer  </Text>
-         </Link> 
-          </View> */}
+                  <View
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      gap: 10,
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text> Prix : 150.0000 fcfa/mois</Text>
+                  </View>
+                  <Link  style={styles.headerBtn13}  href="/test/test"> 
+                    <Text> louer  </Text>
+                  </Link> 
+                </View> */}
               </View> 
             </View> 
           </View>
         </View>
-      {/* </ScrollView> */}
-        </View>
+        {/* </ScrollView> */}
+      </View>
     </SafeAreaView>
   );
 };
@@ -351,7 +346,6 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     backgroundColor: COLORS.blue,
     paddingHorizontal: 20,
-    // padding:10,
     paddingVertical: 12,
     color: COLORS.white,
     borderRadius: 10,

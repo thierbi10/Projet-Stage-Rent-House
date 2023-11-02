@@ -9,7 +9,7 @@ import {
   Animated,
   PanResponder,
   TouchableWithoutFeedback,
-} from 'react-native'
+} from 'react-native';
 import home from '../../assets/icons/home.png';
 import chat from '../../assets/icons/chat.png';
 import badge from '../../assets/icons/badge.png';
@@ -22,14 +22,17 @@ import parametre from '../../assets/icons/parametre.png';
 import HomeScreen from './HomeScreen';
 
 export default function AppScreen() {
-  
+  // État pour suivre l'onglet actuel
   const [currentTab, setCurrentTab] = useState('Home');
+  // État pour gérer l'état de la barre latérale (ouverte ou fermée)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Références pour les animations
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
 
+  // Gestion des gestes pour ouvrir et fermer la barre latérale
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponder: (_, gestureState) => {
@@ -44,6 +47,7 @@ export default function AppScreen() {
     },
   });
 
+  // Fonction pour ouvrir ou fermer la barre latérale
   const toggleSidebar = () => {
     Animated.timing(scaleValue, {
       toValue: isSidebarOpen ? 1 : 0.88,
@@ -66,6 +70,7 @@ export default function AppScreen() {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Tableau des onglets
   const tabs = [
     { title: 'Home', image: home },
     { title: 'Profile', image: profil },
@@ -111,14 +116,12 @@ export default function AppScreen() {
             paddingHorizontal: 0,
             paddingVertical: 0,
             borderRadius: isSidebarOpen ? 19 : 0,
-            // Transform
+            // Transformations pour l'animation de la barre latérale
             transform: [{ scale: scaleValue }, { translateX: offsetValue }],
           }}>
-        
-           <HomeScreen
-            // currentTab={currentTab}
+          <HomeScreen
             isSidebarOpen={isSidebarOpen}
-          /> 
+          />
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{
@@ -127,7 +130,6 @@ export default function AppScreen() {
               zIndex: 1,
               borderRadius: isSidebarOpen ? 10 : 0,
             }}>
-          
           </TouchableOpacity>
         </Animated.View>
       </SafeAreaView>
@@ -135,6 +137,7 @@ export default function AppScreen() {
   );
 }
 
+// Composant pour les boutons d'onglet
 const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
   return (
     <TouchableOpacity
@@ -142,7 +145,6 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
         height: 50,
         paddingTop: 50,
       }}>
-        
       <View
         style={{
           flexDirection: 'row',
@@ -155,7 +157,6 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
           borderTopRightRadius: 32,
           borderBottomEndRadius: 32,
           height: 50,
-          
         }}>
         <Image
           source={image}

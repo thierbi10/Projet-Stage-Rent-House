@@ -10,6 +10,8 @@ import {
   PanResponder,
   TouchableWithoutFeedback,
 } from 'react-native';
+
+// Import des icônes
 import home from '../src/assets/icons/home.png';
 import chat from '../src/assets/icons/chat.png';
 import badge from '../src/assets/icons/badge.png';
@@ -19,17 +21,23 @@ import notif from '../src/assets/icons/notif.png';
 import profil from '../src/assets/icons/profil.png';
 import logout from '../src/assets/icons/logout.png';
 import parametre from '../src/assets/icons/parametre.png';
+
+// Import des composants de l'application
 import HomeScreen from '../src/components/HomeScreen';
-import Profil from '../src/components/Profil';
+
 
 const index = () => {
+  // État pour suivre l'onglet actuel
   const [currentTab, setCurrentTab] = useState('Home');
+  // État pour gérer l'état de la barre latérale (ouverte ou fermée)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
+  // Références pour les animations
   const offsetValue = useRef(new Animated.Value(0)).current;
   const scaleValue = useRef(new Animated.Value(1)).current;
   const closeButtonOffset = useRef(new Animated.Value(0)).current;
 
+  // Gestion des gestes pour ouvrir et fermer la barre latérale
   const panResponder = PanResponder.create({
     onStartShouldSetPanResponder: () => true,
     onMoveShouldSetPanResponder: (_, gestureState) => {
@@ -44,6 +52,7 @@ const index = () => {
     },
   });
 
+  // Fonction pour ouvrir ou fermer la barre latérale
   const toggleSidebar = () => {
     Animated.timing(scaleValue, {
       toValue: isSidebarOpen ? 1 : 0.88,
@@ -66,6 +75,7 @@ const index = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  // Tableau des onglets
   const tabs = [
     { title: 'Home', image: home },
     { title: 'Profile', image: profil },
@@ -111,26 +121,21 @@ const index = () => {
             paddingHorizontal: 0,
             paddingVertical: 0,
             borderRadius: isSidebarOpen ? 19 : 0,
-            // Transform
+            // Transformations pour l'animation de la barre latérale
             transform: [{ scale: scaleValue }, { translateX: offsetValue }],
           }}>
-        
+           {/* Composant de l'écran d'accueil */}
            <HomeScreen
-            
             isSidebarOpen={isSidebarOpen}
           /> 
-      {/* <Link href='./AchatScreen.js'> DD</Link> */}
-
           <TouchableOpacity
             onPress={toggleSidebar}
             style={{
-            
               top: 20,
               left: 20,
               zIndex: 1,
               borderRadius: isSidebarOpen ? 10 : 0,
             }}>
-          
           </TouchableOpacity>
         </Animated.View>
       </SafeAreaView>
@@ -138,6 +143,7 @@ const index = () => {
   );
 }
 
+// Composant pour les boutons d'onglet
 const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
   return (
     <TouchableOpacity
@@ -145,7 +151,6 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
         height: 50,
         paddingTop: 50,
       }}>
-        
       <View
         style={{
           flexDirection: 'row',
@@ -158,7 +163,6 @@ const TabButton = ({ currentTab, setCurrentTab, title, image }) => {
           borderTopRightRadius: 32,
           borderBottomEndRadius: 32,
           height: 50,
-          
         }}>
         <Image
           source={image}
@@ -199,5 +203,4 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
   },
-}
-  )
+});

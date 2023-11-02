@@ -24,7 +24,7 @@ import { Link } from "expo-router";
 const { width } = Dimensions.get("window");
 
 const categoryList = ["House", "Apartment", "Hotel", "Villa"];
-
+// Composant pour afficher la liste des catégoriesssss
 const ListCategories = ({ selectedCategoryIndex, setSelectedCategoryIndex }) => {
   return (
     <View style={styles.categoryListContainer}>
@@ -73,11 +73,12 @@ const Card = ({ place }) => {
   );
 };
 
+// Composant principal de l'écran d'accueil
 const HomeScreen = () => {
   const [searchValue, setSearchValue] = useState("");
   const [selectedCategoryIndex, setSelectedCategoryIndex] = useState(0);
   const [showAllCards, setShowAllCards] = useState(false);
-
+// Filtrer les données de maison en fonction de la recherche et de la catégorie sélectionnée
   const filteredHouses = houseData.filter((house) => {
     return (
       ((house.location && house.location.toLowerCase().includes(searchValue.toLowerCase())) ||
@@ -86,9 +87,10 @@ const HomeScreen = () => {
     );
   });
 
-
+// Afficher toutes les cartes ou seulement les 4 premières
   const visibleHouses = showAllCards ? filteredHouses : filteredHouses.slice(0, 4);
-
+  
+    // Composant pour afficher une carte de maison
   const CardHouse = ({ house }) => {
     return (
       <Link href={{ pathname: '/DetailScreen', params: { house } }}>

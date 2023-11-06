@@ -16,9 +16,6 @@ import { auth } from "../../src/firbase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 
-
-
-
 const Test = () => {
   // const navigation = useNavigation();
   const [email, setEmail] = useState("");
@@ -34,7 +31,7 @@ const Test = () => {
          router.push({pathname: "/Achat/AchatScreen"});
          
          console.log('13');
-   
+
       })
       .catch((error) => {
         const errorCode = error.code;

@@ -221,7 +221,7 @@ const DetailScreen = () => {
                 
                 // // marginTop:20,
                 // // paddingHorizontal: 10,
-                // paddingTop: 20,
+                 paddingBottom: 20,
               }}
             >
               <View
@@ -230,18 +230,19 @@ const DetailScreen = () => {
                   height:150,
                 marginVerticale: 10,
                    marginTop:20,
-                   marginBottom:20,
-                  
+                  //  marginBottom:20,
+                  borderBlockColor:COLORS.blue
                 }}
               >
-                 <MapView style={styles.map}
-                 initialRegion={{
+                 {/* <MapView style={styles.map}
+                  initialRegion={{
                   latitude: 14.6928, 
-    longitude: -17.4467 ,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421
+                  longitude: -17.4467 ,
+                  latitudeDelta: 0.0922,
+                  longitudeDelta: 0.0421
                 }}
-                 />
+                 /> */}
+                <Image style={styles.map}    source={require("../src/assets/mapImg.jpg")} />
                 </View>
                 <View style={styles.header1}>
             <View
@@ -252,7 +253,7 @@ const DetailScreen = () => {
                 alignItems: "center",
               }}
             >
-              <Text style={{color:COLORS.white}} > Prix : 150.0000 fcfa/mois</Text>
+              <Text style={{color:COLORS.dark}} > Prix : 150.0000 fcfa/mois</Text>
             </View>
             
             <Link  style={styles.headerBtn13}  href="/test/test"> 

@@ -28,14 +28,14 @@ const { width } = Dimensions.get("window");
 const InteriorCard = ({ interior }) => {
   return <Image source={interior} style={styles.interiorImage} />;
 };
-
+{/* la localisation de dakar */}
 const dakarCoordinates = { latitude: 14.6928, longitude: -17.4467 };
 
 const DetailScreen = () => {
   const route = useRouter();
   const house = route.params;
   const phoneNumber = "77 855 84 21";
-
+{/* ouvrir whatsapp */}
   const handleWhatsappButtonClick = () => {
     const whatsappURL = `whatsapp://send?phone=${phoneNumber}`;
     Linking.canOpenURL(whatsappURL)
@@ -50,7 +50,7 @@ const DetailScreen = () => {
         console.error(error);
       });
   };
-
+{/* ouvrir le clavier du telephone */}
   const handlePhoneButtonClick = () => {
     const phoneURL = `tel:${phoneNumber}`;
     Linking.canOpenURL(phoneURL)
@@ -69,6 +69,7 @@ const DetailScreen = () => {
   const [location, setLocation] = useState(null);
   const [errorMsg] = useState(null);
 
+  {/* Localisation */}
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
@@ -86,18 +87,19 @@ const DetailScreen = () => {
       <View style={styles.backgroundImageContainer}>
         <ImageBackground
           style={styles.backgroundImage}
-          source={require("../src/assets/house1.jpg")}
+          source={require("../src/assets/house1.jpg")}//image
         >
           <View style={styles.header}>
             <View style={styles.headerBtn}>
               <Icon
                 name="arrow-back-ios"
                 size={20}
-                color={COLORS.white}
+                color={COLORS.white}//boutton
               />
             </View>
             <View style={styles.headerBtn}>
-              <Icon name="turned-in-not" size={20} color={COLORS.white} />
+              <Icon name="turned-in-not" size={20} color={COLORS.white}//boutton 
+              />
             </View>
           </View>
 
@@ -115,7 +117,7 @@ const DetailScreen = () => {
             <Text style={{ color: COLORS.white, fontSize: 14, marginTop: 5 }}>
               Jl. Sultan Iskandar Mudas
             </Text>
-
+             {/* description */}
             <View style={{ marginTop: 10, flexDirection: "row" }}>
               <View style={styles.facilityDetails}>
                 <View style={styles.headerBtn2}>
@@ -158,7 +160,7 @@ const DetailScreen = () => {
             </View>
             <Text> Prix : 150.0000 fcfa/mois</Text>
           </View>
-
+           {/* card description */}
           <View style={styles.header1}>
             <View
               style={{
@@ -220,6 +222,7 @@ const DetailScreen = () => {
               data={interiors}
               renderItem={({ item }) => <InteriorCard interior={item} />}
             />
+         {/* Map*/}
             <View
               style={{
                 flex: 1,
@@ -233,6 +236,8 @@ const DetailScreen = () => {
                   width: '100%',
                 }}
               >
+
+          
                 {/* <MapView
                   showsMyLocationButton={true}
                   showsUserLocation={true}

@@ -15,7 +15,6 @@ import COLORS from "../src/const/color";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Iconf from "react-native-vector-icons/FontAwesome";
 import { Link, useRouter } from 'expo-router';
-import * as Location from 'expo-location';
 import MapView from 'react-native-maps';
 import { ScrollView } from "react-native-virtualized-view";
 
@@ -30,20 +29,11 @@ const InteriorCard = ({ interior }) => {
   return <Image source={interior} style={styles.interiorImage} />;
 };
 
-const dakarCoordinates = { latitude: 14.6928, longitude: -17.4467 };
+
 
 const DetailScreen = () => {
 
-  const [mapRegion,setMapRegion]= useState({
-    latitude: 14.6928, 
-    longitude: -17.4467 ,
-    latitudeDelta: 0.0922,
-    longitudeDelta: 0.0421
-  
-  
-  })
-  
-
+ 
   const route = useRouter();
   const house = route.params;
   const phoneNumber = "77 855 84 21";
@@ -78,20 +68,9 @@ const DetailScreen = () => {
       });
   };
 
-  const [location, setLocation] = useState(null);
-  const [errorMsg] = useState(null);
+  
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        console.error('Permission to access location was denied');
-        return;
-      }
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
+ 
 
   return (
     <SafeAreaView >
@@ -256,7 +235,12 @@ const DetailScreen = () => {
                 }}
               >
                  <MapView style={styles.map}
-                 region={mapRegion}
+                 initialRegion={{
+                  latitude: 14.6928, 
+    longitude: -17.4467 ,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421
+                }}
                  />
                 </View>
                 <View style={styles.header1}>
@@ -268,7 +252,7 @@ const DetailScreen = () => {
                 alignItems: "center",
               }}
             >
-              <Text> Prix : 150.0000 fcfa/mois</Text>
+              <Text style={{color:COLORS.white}} > Prix : 150.0000 fcfa/mois</Text>
             </View>
             
             <Link  style={styles.headerBtn13}  href="/test/test"> 
@@ -316,6 +300,7 @@ const styles = StyleSheet.create({
   },
   header1: {
     paddingVertical: 20,
+    margin:10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

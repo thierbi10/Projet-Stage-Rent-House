@@ -14,8 +14,8 @@ import {
 import COLORS from "../src/const/color";
 import Icon from "react-native-vector-icons/MaterialIcons";
 import Iconf from "react-native-vector-icons/FontAwesome";
-import { Link, useRouter } from 'expo-router';  // Il y a une coquille dans l'import (router au lieu de route)
-import * as Location from 'expo-location';
+import { Link, useRouter } from 'expo-router';
+import MapView from 'react-native-maps';
 import { ScrollView } from "react-native-virtualized-view";
 
 const interiors = [
@@ -28,10 +28,12 @@ const { width } = Dimensions.get("window");
 const InteriorCard = ({ interior }) => {
   return <Image source={interior} style={styles.interiorImage} />;
 };
-{/* la localisation de dakar */}
-const dakarCoordinates = { latitude: 14.6928, longitude: -17.4467 };
+
+
 
 const DetailScreen = () => {
+
+ 
   const route = useRouter();
   const house = route.params;
   const phoneNumber = "77 855 84 21";
@@ -66,26 +68,15 @@ const DetailScreen = () => {
       });
   };
 
-  const [location, setLocation] = useState(null);
-  const [errorMsg] = useState(null);
+  
 
-  {/* Localisation */}
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        console.error('Permission to access location was denied');
-        return;
-      }
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
+ 
 
   return (
     <SafeAreaView >
-      <View style={styles.backgroundImageContainer}>
-        <ImageBackground
+      <ScrollView>
+            <View style={styles.backgroundImageContainer}>
+²        <ImageBackground
           style={styles.backgroundImage}
           source={require("../src/assets/house1.jpg")}//image
         >
@@ -134,9 +125,10 @@ const DetailScreen = () => {
             </View>
           </View>
         </ImageBackground>
-        {/* <ScrollView> */}
+        </View>
+    {/* <ScrollView> */}
 
-        <View style={{ marginTop: 10 }}>
+        <View style={{ marginTop: 10 , paddingHorizontal:10,}}>
           <Text style={{ fontSize: 16, fontWeight: '500', color: COLORS.dark }}>
             Description
           </Text>
@@ -145,7 +137,7 @@ const DetailScreen = () => {
             piscine et d'un garage pouvant accueillir jusqu'à quatre voitures...{" "}
             <Text style={{ color: COLORS.blue }}>Show More</Text>{" "}
           </Text>
-          <View style={styles.header1}>
+           {/* <View style={styles.header1}>
             <View
               style={{
                 flex: 1,
@@ -156,11 +148,11 @@ const DetailScreen = () => {
             >
               <Link  style={styles.headerBtn13}  href="/test/test"> 
                 <Text> Réserver</Text>
-              </Link> 
+         </Link>  
             </View>
             <Text> Prix : 150.0000 fcfa/mois</Text>
-          </View>
-           {/* card description */}
+          </View> */}
+
           <View style={styles.header1}>
             <View
               style={{
@@ -216,7 +208,7 @@ const DetailScreen = () => {
               Gallery
             </Text>
             <FlatList
-              style={{ height: 30 }}
+              // style={{ height: 200 }}
               horizontal
               showsHorizontalScrollIndicator={false}
               data={interiors}
@@ -225,59 +217,56 @@ const DetailScreen = () => {
          {/* Map*/}
             <View
               style={{
-                flex: 1,
-                height: 40,
-                borderRadius: 20,
-                marginTop:20,
+                // flex: 1,
+                // height: 40,
+                // borderRadius: 20,
+                
+                // // marginTop:20,
+                // // paddingHorizontal: 10,
+                // paddingTop: 20,
               }}
             >
               <View
                 style={{
-                  width: '100%',
+                  flex:1,
+                  height:150,
+                marginVerticale: 10,
+                   marginTop:20,
+                   marginBottom:20,
+                  
                 }}
               >
-
-          
-                {/* <MapView
-                  showsMyLocationButton={true}
-                  showsUserLocation={true}
-                  style={styles.map}
-                  initialRegion={{
-                    latitude: dakarCoordinates.latitude,
-                    longitude: dakarCoordinates.longitude,
-                    latitudeDelta: 0.0922,
-                    longitudeDelta: 0.0421,
-                  }}
-                  scrollEnabled={true} // Activation du panoramique
-                  zoomEnabled={true}   // Activation du zoom
-                >
-                  <Marker
-                    coordinate={dakarCoordinates}
-                    title="Dakar"
-                    description="La belle ville de Dakar"
-                  />
-                </MapView> */}
-                {/* <View style={styles.header1}>
-                  <View
-                    style={{
-                      flex: 1,
-                      flexDirection: "row",
-                      gap: 10,
-                      alignItems: "center",
-                    }}
-                  >
-                    <Text> Prix : 150.0000 fcfa/mois</Text>
-                  </View>
-                  <Link  style={styles.headerBtn13}  href="/test/test"> 
-                    <Text> louer  </Text>
-                  </Link> 
-                </View> */}
-              </View> 
+                 <MapView style={styles.map}
+                 initialRegion={{
+                  latitude: 14.6928, 
+    longitude: -17.4467 ,
+    latitudeDelta: 0.0922,
+    longitudeDelta: 0.0421
+                }}
+                 />
+                </View>
+                <View style={styles.header1}>
+            <View
+              style={{
+                flex: 1,
+                flexDirection: "row",
+                gap: 10,
+                alignItems: "center",
+              }}
+            >
+              <Text style={{color:COLORS.white}} > Prix : 150.0000 fcfa/mois</Text>
+            </View>
+            
+            <Link  style={styles.headerBtn13}  href="/test/test"> 
+                <Text> louer  </Text>
+         </Link> 
+          </View>
+              
             </View> 
           </View>
         </View>
-        {/* </ScrollView> */}
-      </View>
+        
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -287,6 +276,9 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 120,
     marginTop: -100
+  }, map: {
+    width: '100%',
+    height:250,
   },
 
   backgroundImageContainer: {
@@ -310,6 +302,7 @@ const styles = StyleSheet.create({
   },
   header1: {
     paddingVertical: 20,
+    margin:10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",

@@ -33,10 +33,8 @@ const LoginScreen = () => {
   // }
 
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior="padding"
-    >
+    <KeyboardAvoidingView style={styles.container}
+      behavior="padding">
       <Text style={styles.loginText}>Connectez-vous et continuez</Text>
       <View style={styles.inputContainer}>
         {/* Champ de saisie pour l'email */}

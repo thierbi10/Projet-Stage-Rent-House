@@ -1,26 +1,33 @@
 import React from 'react';
-import { StyleSheet, Text, View, ScrollView, ImageBackground, Image } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, SafeAreaView, Image, FlatList } from 'react-native';
 import FontAwesome from "@expo/vector-icons/FontAwesome";
-import Feather from "@expo/vector-icons/Feather";
+
 import { TouchableOpacity } from "react-native-gesture-handler";
 import COLORS from '../../src/const/color'
 import Icon from 'react-native-vector-icons/MaterialIcons';
+// import { SliderBox } from 'react-native-image-slider-box';
 
+const interiors = [
+  require('../../src/assets/interior1.jpg'),
+  require('../../src/assets/interior2.jpg'),
+  require('../../src/assets/interior3.jpg'),
+  require('../../src/assets/interior1.jpg'),
+  require('../../src/assets/interior2.jpg'),
+  require('../../src/assets/interior3.jpg'),
+]
+
+
+const InteriorCard = ({ interior }) => {
+  return <Image source={interior} style={styles.interiorImages} />;
+};
 const AchatScreen = () => {
   return (
-    <ScrollView contentContainerStyle={styles.container}> 
-      <View style={styles.header}>
-        <TouchableOpacity
-        //  onPress={() => props.navigation.goBack()}r
-         >
-          <Feather name="chevron-left" color="#FFF" size={25} />
-        </TouchableOpacity>
-        <Feather name="shopping-cart" color="#FFF" size={25} />
-      </View>
-
+    <SafeAreaView >
+    <View contentContainerStyle={styles.container}> 
+ 
       <Image source={require('../../src/assets/house1.jpg')} style={styles.img}  />
 
-      <View style={styles.cont3}>
+      <ScrollView style={styles.cont3}>
       <View style={styles.header1}>
               <View style={{ flex:1,   flexDirection: 'row' , justifyContent:'space-between',alignItems:'center'}} >
               <TouchableOpacity>
@@ -36,33 +43,38 @@ const AchatScreen = () => {
       
         
         <Text style={{fontSize:12 , fontWeight:400, color:COLORS.grey}}> Bonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
-        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée </Text>
+        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée
+        Bonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
+        Les chambres sont composées d'une salle de bain interne ou externe bien climatiséeBonjour nous louons des chambres meublées à Rufisque dans un endroit calme, accessible et sécurisée. 
+        Les chambres sont composées d'une salle de bain interne ou externe bien climatisée
+        
+         </Text>
 <Text style={styles.subtitle}>Details</Text>
-<View style={{flex:1, flexDirection: 'row' ,marginVertical:20, gap:10 ,alignItems:'center'}}>
-<Icon name="location-on" size={20} color={COLORS.blue} />
- <Text> Dakar,hlm4,VILLA 1001</Text>
+<View style={{flex:1, flexDirection: 'row' ,marginVertical:10, gap:0 ,alignItems:'center'}}>
+<Icon name="location-on" size={15} color={COLORS.blue} />
+ <Text style={{fontSize:12 , fontWeight:400, color:COLORS.dark}} > Dakar,hlm4,VILLA 1001</Text>
 
 
 
 
 </View>
 
-  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', marginRight:30,   gap:10 ,alignItems:'center'}}>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between',  gap:10 ,alignItems:'center'}}>
     <Text style={styles.textes}>Chambres</Text>
     <Text style={styles.textes}>8</Text>
     
   </View>
-  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between',marginRight:30, gap:10 ,alignItems:'center'}}>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', gap:10 ,alignItems:'center'}}>
     <Text style={styles.textes}>Salons</Text>
     <Text style={styles.textes}>2</Text>
     
   </View>
-  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between',marginRight:30, gap:10 ,alignItems:'center'}}>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', gap:10 ,alignItems:'center'}}>
     <Text style={styles.textes}>nombre de lis</Text>
     <Text style={styles.textes}>8</Text>
     
   </View>
-  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', gap:10 , marginRight:30,alignItems:'center'}}>
+  <View style={{flex:1, flexDirection: 'row' , justifyContent:'space-between', gap:10 ,alignItems:'center'}}>
     <Text style={styles.textes}>salles de bain</Text>
     <Text style={styles.textes}>4</Text>
     
@@ -72,19 +84,29 @@ const AchatScreen = () => {
     <Text style={styles.texte}>2</Text>
   </View>
 <Text style={styles.texte}>Dakar, Rufisque</Text>*/}
-
+      <View style={{width:'100%',  height:200, marginTop:10,}} > 
+          {/* <SliderBox images={images}/> */}
+          <FlatList
+              style={{ height: 230 , width:'100%' , marginTop:0}}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+              data={interiors}
+              renderItem= {({ item }) => <InteriorCard interior={item} />}
+            />
+      </View>
         
         <View style={styles.cont1}>
           <FontAwesome name="heart-o" color="#000" size={25} />
           <TouchableOpacity
             style={styles.btn}
-            onPress={() => props.navigation.navigate("Home")}
+      
           >
             <Text style={styles.btnText}>Next</Text>
           </TouchableOpacity>
         </View>
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </View>
+    </SafeAreaView>
   );
 };
 
@@ -92,7 +114,7 @@ export default AchatScreen;
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
+     flex: 1,
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: COLORS.lightBlue,
@@ -143,13 +165,14 @@ const styles = StyleSheet.create({
   },
   btn: {
     backgroundColor: "#1243c9",
-    paddingHorizontal: 60,
-    paddingVertical: 12,
+    paddingHorizontal: 40,
+    paddingVertical: 10,
     borderRadius: 30,
+    marginVertical:10,
   },
   btnText: {
     
-    fontSize: 20,
+    fontSize: 15,
     color: "#FFF",
   },
   cont1: {
@@ -193,6 +216,16 @@ const styles = StyleSheet.create({
     width: "100%",
     marginVertical: 25,
   },
+
+  interiorImages: {
+    width: 300,
+     height: 200,
+    marginTop: 10,
+    marginRight: 10,
+    borderRadius: 10,
+  },
+
+
   header: {
     flexDirection: "row",
     alignItems: "center",
@@ -202,14 +235,15 @@ const styles = StyleSheet.create({
     paddingTop: 50,
   },
   img: {
-    height: "45%",
+    height: "25%",
     width: "100%",
   },
   cont3: {
-    flex: 1,
+    // flex: 3,
+    height:'75%',
     backgroundColor: "#FFF",
     width: "100%",
     borderRadius: 50,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
   },
 });
